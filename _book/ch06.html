@@ -1,0 +1,862 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第六章 内置模块 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch07.html" />
+    
+    
+    <link rel="prev" href="ch05.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    第一章 用pythonic方式来思考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    第二章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    第三章 类与继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    第四章 元类及属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch05.html">
+            
+                <a href="ch05.html">
+            
+                    
+                    第五章 并发及并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="ch06.html">
+            
+                <a href="ch06.html">
+            
+                    
+                    第六章 内置模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch07.html">
+            
+                <a href="ch07.html">
+            
+                    
+                    第七章 协作开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch08.html">
+            
+                <a href="ch08.html">
+            
+                    
+                    第八章 部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >第六章 内置模块</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;&#x516D;&#x7AE0;-&#x5185;&#x7F6E;&#x6A21;&#x5757;">&#x7B2C;&#x516D;&#x7AE0; &#x5185;&#x7F6E;&#x6A21;&#x5757;</h1>
+<blockquote>
+<p>python&#x91C7;&#x7528;batteries included(&#x5728;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x63D0;&#x4F9B;&#x8BB8;&#x591A;&#x4F7F;&#x7528;&#x7684;&#x6A21;&#x5757;)&#x601D;&#x8DEF;&#x6765;&#x8BBE;&#x8BA1;&#x6807;&#x51C6;&#x5E93;.</p>
+</blockquote>
+<h2 id="&#x7B2C;42&#x6761;&#x7528;functoolswraps&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x4FEE;&#x9970;&#x5668;">&#x7B2C;42&#x6761;:&#x7528;functools.wraps&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x4FEE;&#x9970;&#x5668;</h2>
+<blockquote>
+<p>python&#x7528;&#x7279;&#x6B8A;&#x7684;&#x8BED;&#x6CD5;&#x6765;&#x8868;&#x793A;&#x4FEE;&#x9970;&#x5668;(decorator),&#x8FD9;&#x4E9B;&#x4FEE;&#x9970;&#x5668;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4FEE;&#x9970;&#x51FD;&#x6570;.&#x5BF9;&#x4E8E;&#x53D7;&#x5230;&#x5C01;&#x88C5;&#x7684;&#x539F;&#x51FD;&#x6570;&#x6765;&#x8BF4;,&#x4FEE;&#x9970;&#x5668;&#x80FD;&#x591F;&#x90A3;&#x4E2A;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x4EE5;&#x53CA;&#x6267;&#x884C;&#x4E4B;&#x540E;,&#x5206;&#x522B;&#x8FD0;&#x884C;&#x4E00;&#x4E9B;&#x9644;&#x52A0;&#x4EE3;&#x7801;.&#x8FD9;&#x4F7F;&#x5F97;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x5728;&#x4FEE;&#x9970;&#x5668;&#x91CC;&#x9762;&#x8BBF;&#x95EE;&#x5E76;&#x4FEE;&#x6539;&#x539F;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x53CA;&#x8FD4;&#x56DE;&#x503C;,&#x4EE5;&#x5B9E;&#x73B0;&#x7EA6;&#x675F;&#x8BED;&#x4E49;(enforce semantics),&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;,&#x6CE8;&#x518C;&#x51FD;&#x6570;&#x7B49;&#x76EE;&#x6807;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;
+&#x5B9E;&#x73B0;&#x529F;&#x80FD;:&#x6253;&#x5370;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x6240;&#x63A5;&#x6536;&#x7684;&#x53C2;&#x6570;&#x4EE5;&#x53CA;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;.
+&apos;&apos;&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">trace</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        result = func(*args, **kwargs)
+        print(<span class="hljs-string">&apos;%s(%r, %r)-&gt;%r&apos;</span> % (func.__name__, args, kwargs, result))
+        <span class="hljs-keyword">return</span> result
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@trace</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(n)</span>:</span>
+    <span class="hljs-keyword">if</span> n <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>,<span class="hljs-number">1</span>):
+        <span class="hljs-keyword">return</span> n
+    <span class="hljs-keyword">return</span> (fibonacci(n<span class="hljs-number">-1</span>)+fibonacci(n<span class="hljs-number">-2</span>))
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4F7F;&#x7528;&#x4FEE;&#x9970;&#x5668;&#x6548;&#x679C;&#x7B49;&#x4E8E;&#x5148;&#x4EE5;&#x8BE5;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;,&#x8C03;&#x7528;&#x4FEE;&#x9970;&#x5668;,&#x7136;&#x540E;&#x628A;&#x4FEE;&#x9970;&#x5668;&#x6240;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x6784;,&#x8D4B;&#x7ED9;&#x540C;&#x4E00;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x4E0E;&#x539F;&#x51FD;&#x6570;&#x540C;&#x540D;&#x7684;&#x90A3;&#x4E2A;&#x53D8;&#x91CF;.
+&apos;&apos;&apos;</span>
+fibonacci(<span class="hljs-number">3</span>)
+help(fibonacci)
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4E0A;&#x9762;&#x7684;&#x5B9E;&#x73B0;&#x5F62;&#x5F0F;&#x5B58;&#x5728;&#x526F;&#x4F5C;&#x7528;:&#x5373;&#x4FEE;&#x9970;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x90A3;&#x4E2A;&#x51FD;&#x6570;,&#x5176;&#x540D;&#x79F0;&#x4E0E;&#x539F;&#x6765;&#x7684;&#x51FD;&#x6570;&#x540D;&#x79F0;&#x4E0D;&#x4E00;&#x6837;,&#x4ED6;&#x53EB;&#x505A;wrapper&#x800C;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x7684;fibonacci.&#x5BF9;&#x4E8E;&#x8C03;&#x8BD5;&#x5668;&#x548C;&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x5668;&#x7B49;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5185;&#x7701;&#x673A;&#x5236;&#x7684;&#x90A3;&#x4E9B;&#x5DE5;&#x5177;&#x6765;&#x8BF4;,&#x8FD9;&#x6837;&#x7684;&#x884C;&#x4E3A;&#x4F1A;&#x5E72;&#x6270;&#x5B83;&#x4EEC;&#x7684;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;.
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;functool&#x6A21;&#x5757;&#x4E2D;&#x540D;&#x4E3A;wraps&#x7684;&#x8F85;&#x52A9;&#x51FD;&#x6570;&#x6765;&#x89E3;&#x51B3;.wraps&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4FEE;&#x9970;&#x5668;,&#x5B83;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x5F00;&#x53D1;&#x8005;&#x7F16;&#x5199;&#x5176;&#x4ED6;&#x4FEE;&#x9970;&#x5668;.&#x5C06;wraps&#x4FEE;&#x9970;&#x5668;&#x8FD0;&#x7528;&#x5230;wrapper&#x51FD;&#x6570;&#x4E4B;&#x540E;,&#x5B83;&#x5C31;&#x4F1A;&#x628A;&#x4E0E;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x76F8;&#x5173;&#x7684;&#x91CD;&#x8981;&#x5143;&#x6570;&#x636E;&#x5168;&#x90E8;&#x8D4B;&#x503C;&#x5230;&#x5916;&#x56F4;&#x51FD;&#x6570;.
+&apos;&apos;&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">trace</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        result = func(*args, **kwargs)
+        print(<span class="hljs-string">&apos;%s(%r, %r)-&gt;%r&apos;</span> % (func.__name__, args, **kwargs, result))
+        <span class="hljs-keyword">return</span> result
+    <span class="hljs-keyword">return</span> wrapper
+<span class="hljs-meta">@trace</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(n)</span>:</span>
+    <span class="hljs-keyword">if</span> n <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>,<span class="hljs-number">1</span>):
+        <span class="hljs-keyword">return</span> n
+    <span class="hljs-keyword">return</span> (fibonacci(n<span class="hljs-number">-1</span>)+fibonacci(n<span class="hljs-number">-2</span>))
+fibonacci(<span class="hljs-number">3</span>)
+help(fibonacci)
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>python&#x4E3A;&#x4FEE;&#x9970;&#x5668;&#x63D0;&#x4F9B;&#x4E13;&#x95E8;&#x7684;&#x8BED;&#x6CD5;,&#x5B83;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;,&#x80FD;&#x591F;&#x7528;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x4FEE;&#x6539;&#x53E6;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</li>
+<li>&#x5BF9;&#x4E8E;&#x8C03;&#x8BD5;&#x5668;&#x8FD9;&#x79CD;&#x4F9D;&#x9760;&#x5185;&#x7701;&#x673A;&#x5236;&#x7684;&#x5DE5;&#x5177;,&#x76F4;&#x63A5;&#x7F16;&#x5199;&#x4FEE;&#x9970;&#x5668;&#x4F1A;&#x5F15;&#x53D1;&#x5947;&#x602A;&#x7684;&#x884C;&#x4E3A;</li>
+<li>&#x5185;&#x7F6E;&#x7684;functools&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x540D;&#x4E3A;wraps&#x7684;&#x4FEE;&#x9970;&#x5668;,&#x5F00;&#x53D1;&#x8005;&#x5728;&#x5B9A;&#x4E49;&#x5B50;&#x96C6;&#x7684;&#x4FEE;&#x9970;&#x5668;&#x65F6;,&#x5E94;&#x8BE5;&#x7528;wraps&#x5BF9;&#x5176;&#x505A;&#x4E00;&#x4E9B;&#x5904;&#x7406;,&#x4EE5;&#x907F;&#x514D;&#x4E00;&#x4E9B;&#x95EE;&#x9898;.</li>
+</ul>
+<h2 id="&#x7B2C;43&#x6761;-&#x8003;&#x8651;&#x4EE5;contextlib&#x548C;with&#x8BED;&#x53E5;&#x6765;&#x6539;&#x5199;&#x53EF;&#x590D;&#x7528;&#x7684;tryfinally&#x4EE3;&#x7801;">&#x7B2C;43&#x6761;: &#x8003;&#x8651;&#x4EE5;contextlib&#x548C;with&#x8BED;&#x53E5;&#x6765;&#x6539;&#x5199;&#x53EF;&#x590D;&#x7528;&#x7684;try/finally&#x4EE3;&#x7801;</h2>
+<blockquote>
+<p>&#x6709;&#x4E9B;&#x4EE3;&#x7801;,&#x9700;&#x8981;&#x8FD0;&#x884C;&#x5728;&#x7279;&#x6B8A;&#x7684;&#x60C5;&#x5883;&#x4E4B;&#x4E0B;,&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x7528;python&#x8BED;&#x8A00;&#x7684;with&#x8BED;&#x53E5;&#x6765;&#x8868;&#x8FBE;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x673A;.</p>
+<p>&#x6BD4;&#x5982;,&#x5982;&#x679C;&#x628A;&#x4E92;&#x65A5;&#x9501;&#x653E;&#x5728;with&#x8BED;&#x53E5;&#x4E4B;&#x4E2D;,&#x90A3;&#x5C31;&#x8868;&#x793A;&#x53EA;&#x6709;&#x5F53;&#x7A0B;&#x5E8F;&#x6301;&#x6709;&#x8BE5;&#x9501;&#x7684;&#x65F6;&#x5019;,with&#x8BED;&#x53E5;&#x5757;&#x91CC;&#x7684;&#x90A3;&#x4E9B;&#x4EE3;&#x7801;,&#x624D;&#x4F1A;&#x5F97;&#x5230;&#x8FD0;&#x884C;.</p>
+</blockquote>
+<pre><code class="lang-python">lock = Lock()
+<span class="hljs-keyword">with</span> lock:
+    print(<span class="hljs-string">&apos;Lock is held&apos;</span>)
+
+<span class="hljs-comment">#&#x7B49;&#x540C;&#x4E8E;&#x4EE5;&#x4E0B;try/finally&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;</span>
+lock.acquire() <span class="hljs-comment">#&#x9501;&#x8BF7;&#x6C42;</span>
+<span class="hljs-keyword">try</span>:
+    print(<span class="hljs-string">&apos;Lock is held&apos;</span>) <span class="hljs-comment"># &#x83B7;&#x5F97;&#x9501;&#x8D44;&#x6E90;&#x4E4B;&#x540E;&#x8FDB;&#x5165;try&#x8BED;&#x53E5;&#x5757;</span>
+<span class="hljs-keyword">finally</span>:
+    lock.release() <span class="hljs-comment">#&#x91CA;&#x653E;&#x9501;&#x8D44;&#x6E90;</span>
+
+<span class="hljs-string">&apos;&apos;&apos;
+with&#x8BED;&#x53E5;&#x66F4;&#x597D;,&#x5B83;&#x514D;&#x53BB;&#x4E86;&#x7F16;&#x5199;try/finally&#x7ED3;&#x6784;&#x6240;&#x9700;&#x7684;&#x91CD;&#x590D;&#x4EE3;&#x7801;
+&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x7528;&#x5185;&#x7F6E;&#x7684;contextlib&#x6A21;&#x5757;&#x6765;&#x5904;&#x7406;&#x81EA;&#x5DF1;&#x6240;&#x7F16;&#x5199;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x51FD;&#x6570;,&#x4F7F;&#x5B83;&#x4EEC;&#x80FD;&#x591F;&#x652F;&#x6301;with&#x8BED;&#x53E5;.
+&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x540D;&#x4E3A;contextmanager&#x7684;&#x4FEE;&#x9970;&#x5668;.
+&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x51FD;&#x6570;,&#x53EA;&#x9700;&#x7ECF;&#x8FC7;contextmanager&#x4FEE;&#x9970;,&#x5373;&#x53EF;&#x7528;&#x5728;with&#x8BED;&#x53E5;&#x4E4B;&#x4E2D;.
+
+
+&apos;&apos;&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_function</span><span class="hljs-params">()</span>:</span>
+    logging.debug(<span class="hljs-string">&apos;Some debug data&apos;</span>)
+    logging.error(<span class="hljs-string">&apos;Error log here&apos;</span>)
+    logging.debug(<span class="hljs-string">&apos;More debug data&apos;</span>)
+
+my_function()
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x79CD;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;,&#x6765;&#x4E34;&#x65F6;&#x63D0;&#x5347;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x4FE1;&#x606F;&#x7EA7;&#x522B;(log level).
+&apos;&apos;&apos;</span>
+<span class="hljs-meta">@contextmanager</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">debug_logging</span><span class="hljs-params">(level)</span>:</span>
+    logger = logging.getLogger()
+    old_level = logger.getEffectiveLevel()
+    logger.setLevel(level)
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">yield</span> <span class="hljs-comment">#with&#x5757;&#x6240;&#x629B;&#x51FA;&#x7684;&#x4EFB;&#x4F55;&#x5F02;&#x5E38;,&#x90FD;&#x4F1A;&#x7531;yield&#x8868;&#x8FBE;&#x5F0F;&#x91CD;&#x65B0;&#x629B;&#x51FA;</span>
+    <span class="hljs-keyword">finally</span>:
+        logger.setLevel(old_level)
+
+<span class="hljs-keyword">with</span> debug_logging(logging.DEBUG):
+    print(<span class="hljs-string">&apos;Inside:&apos;</span>)
+    my_function()
+print(<span class="hljs-string">&apos;After:&apos;</span>)
+my_function()
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4F7F;&#x7528;&#x5E26;&#x6709;&#x76EE;&#x6807;&#x7684;with&#x8BED;&#x53E5;:
+&#x4F20;&#x7ED9;with&#x8BED;&#x53E5;&#x7684;&#x90A3;&#x4E2A;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;,&#x672C;&#x8EAB;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;.&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;with&#x590D;&#x5408;&#x8BED;&#x53E5;&#x4E2D;&#x7684;as&#x5173;&#x952E;&#x5B57;,&#x6765;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;,python&#x4F1A;&#x628A;&#x90A3;&#x4E2A;&#x5BF9;&#x8C61;,&#x8D4B;&#x7ED9;&#x8FD9;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;.
+
+&#x6BD4;&#x5982;:&#x5411;&#x6587;&#x4EF6;&#x4E2D;&#x5199;&#x5165;&#x6570;&#x636E;,&#x4F7F;&#x7528;with&#x8BED;&#x53E5;&#x6765;&#x5B9E;&#x73B0;,with open(filename, &apos;a+&apos;) as fp_w:
+
+&#x6211;&#x4EEC;&#x4F7F;&#x7528;with...as&#x6765;&#x6539;&#x5199;&#x524D;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#x6253;&#x5370;&#x4F8B;&#x5B50;
+&apos;&apos;&apos;</span>
+<span class="hljs-meta">@contextmanager</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log_level</span><span class="hljs-params">(level, name)</span>:</span>
+    logger = logging.getLogger(name)
+    myhandler = logging.StreamHandler()
+    logger.addHandler(myhandler)
+    old_level = logger.getEffectiveLevel()
+    logger.setLevel(level)
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">yield</span> logger
+    <span class="hljs-keyword">finally</span>:
+        logger.setLevel(old_level)
+        <span class="hljs-comment">#logger.removeHandler(myhandler)</span>
+
+<span class="hljs-keyword">with</span> log_level(logging.DEBUG, <span class="hljs-string">&apos;my-log&apos;</span>) <span class="hljs-keyword">as</span> logger:
+    logger.debug(<span class="hljs-string">&apos;This is my message!&apos;</span>) <span class="hljs-comment">#my-log logger</span>
+    logging.debug(<span class="hljs-string">&apos;This will not print&apos;</span>)
+
+logger = logging.getLogger(<span class="hljs-string">&apos;my-log&apos;</span>)
+logger.debug(<span class="hljs-string">&apos;Debug will not print&apos;</span>)
+logger.error(<span class="hljs-string">&apos;Error will print&apos;</span>)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x5BF9;&#x4E8E;&#x6CA1;&#x6709;&#x76EE;&#x6807;&#x7684;with&#x8BED;&#x53E5;&#x6765;&#x8BF4;,&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684;yield&#x8BED;&#x53E5;&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;with&#x8BED;&#x53E5;&#x91CC;&#x7684;&#x8BED;&#x53E5;&#x5757;&#x4EE3;&#x7801;;
+&#x800C;&#x6709;&#x76EE;&#x6807;&#x7684;with&#x8BED;&#x53E5;&#x6765;&#x8BF4;,&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7684;yield&#x8868;&#x8FBE;&#x5F0F;&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x76EE;&#x6807;&#x5BF9;&#x8C61;,&#x800C;with&#x8BED;&#x53E5;&#x91CC;&#x7684;&#x8BED;&#x53E5;&#x5757;&#x5219;&#x4F7F;&#x7528;&#x8BE5;&#x8BED;&#x53E5;&#x6765;&#x5B8C;&#x6210;&#x4EE3;&#x7801;.
+&apos;&apos;&apos;</span>
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x7528;with&#x8BED;&#x53E5;&#x6765;&#x6539;&#x5199;try/finally&#x5757;&#x4E2D;&#x7684;&#x903B;&#x8F91;,&#x4EE5;&#x4FBF;&#x63D0;&#x5347;&#x590D;&#x7528;&#x7A0B;&#x5EA6;,&#x5E76;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x6574;&#x6D01;</li>
+<li>&#x5185;&#x7F6E;&#x7684;contextlib&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x540D;&#x53EB;contextmanager&#x7684;&#x4FEE;&#x9970;&#x5668;,&#x5F00;&#x53D1;&#x8005;&#x53EA;&#x9700;&#x7528;&#x5B83;&#x6765;&#x4FEE;&#x9970;&#x81EA;&#x5DF1;&#x7684;&#x51FD;&#x6570;,&#x5373;&#x53EF;&#x4EE4;&#x8BE5;&#x51FD;&#x6570;&#x652F;&#x6301;with&#x8BED;&#x53E5;</li>
+<li>&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;yield&#x8BED;&#x53E5;&#x5411;with&#x8BED;&#x53E5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;,&#x6B64;&#x503C;&#x4F1A;&#x8D4B;&#x7ED9;&#x7531;as&#x5173;&#x952E;&#x5B57;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x53D8;&#x91CF;.&#x8BE5;&#x673A;&#x5236;&#x9610;&#x660E;&#x4E86;&#x8FD9;&#x4E2A;&#x7279;&#x6B8A;&#x60C5;&#x5883;&#x7684;&#x7F16;&#x5199;&#x52A8;&#x673A;,&#x5E76;&#x4EE4;with&#x5757;&#x4E2D;&#x7684;&#x8BED;&#x53E5;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x76EE;&#x6807;&#x53D8;&#x91CF;.</li>
+</ul>
+<h2 id="&#x7B2C;44&#x6761;-&#x7528;copyreg&#x5B9E;&#x73B0;&#x53EF;&#x9760;&#x7684;pickle&#x64CD;&#x4F5C;">&#x7B2C;44&#x6761;: &#x7528;copyreg&#x5B9E;&#x73B0;&#x53EF;&#x9760;&#x7684;pickle&#x64CD;&#x4F5C;</h2>
+<blockquote>
+<p>&#x5185;&#x7F6E;&#x7684;pickle&#x6A21;&#x5757;&#x80FD;&#x591F;&#x5C06;python&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x5B57;&#x8282;&#x6D41;,&#x4E5F;&#x80FD;&#x628A;&#x8FD9;&#x4E9B;&#x5B57;&#x8282;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E3A;python&#x5BF9;&#x8C61;.pickle&#x6A21;&#x5757;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x6570;&#x636E;&#x91C7;&#x7528;&#x7684;&#x662F;&#x4E00;&#x79CD;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x683C;&#x5F0F;,&#x5B83;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;,&#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x6765;&#x6784;&#x5EFA;&#x539F;&#x59CB;&#x7684;python&#x5BF9;&#x8C61;,&#x8FD9;&#x610F;&#x5473;&#x7740;:&#x7ECF;&#x8FC7;pickle&#x5904;&#x7406;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x636E;,&#x5982;&#x679C;&#x6DF7;&#x5165;&#x4E86;&#x6076;&#x610F;&#x4FE1;&#x606F;,&#x90A3;&#x4E48;python&#x7A0B;&#x5E8F;&#x5728;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x65F6;,&#x8FD9;&#x4E9B;&#x6076;&#x610F;&#x4FE1;&#x606F;&#x53EF;&#x80FD;&#x5BF9;&#x7A0B;&#x5E8F;&#x9020;&#x6210;&#x635F;&#x5BB3;.</p>
+<p>&#x6240;&#x6709;&#x5BF9;&#x4E8E;&#x5F7C;&#x6B64;&#x4E0D;&#x4FE1;&#x4EFB;&#x7684;&#x4EBA;&#x6216;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;,&#x5982;&#x679C;&#x8981;&#x8FDB;&#x884C;&#x901A;&#x4FE1;,&#x90A3;&#x5C31;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;JSON&#x8FD9;&#x6837;&#x7684;&#x683C;&#x5F0F;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x7528;python&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x73A9;&#x5BB6;&#x7684;&#x6E38;&#x620F;&#x8FDB;&#x5EA6;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GameState</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.level = <span class="hljs-number">0</span>
+        self.lives = <span class="hljs-number">4</span>
+
+state = GameState()
+state.level += <span class="hljs-number">1</span> <span class="hljs-comment">#Player beat a level</span>
+state.lives -= <span class="hljs-number">1</span> <span class="hljs-comment">#Player had to try again</span>
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x73A9;&#x5BB6;&#x9000;&#x51FA;&#x6E38;&#x620F;&#x65F6;,&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x628A;&#x6E38;&#x620F;&#x72B6;&#x6001;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x91CC;,&#x4EE5;&#x4FBF;&#x7A0D;&#x540E;&#x6062;&#x590D;.&#x4F7F;&#x7528;pickle&#x6A21;&#x5757;&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;,&#x5C31;&#x975E;&#x5E38;&#x7B80;&#x5355;
+&apos;&apos;&apos;</span>
+state_path = <span class="hljs-string">&apos;/tmp/game_state.bin&apos;</span>
+<span class="hljs-keyword">with</span> open(state_path, <span class="hljs-string">&apos;wb&apos;</span>) <span class="hljs-keyword">as</span> f:
+    pickle.dump(state, f)
+
+<span class="hljs-comment">#&#x8FD8;&#x539F;</span>
+<span class="hljs-keyword">with</span> open(state_path, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">as</span> f:
+    state_after = pickle.load(f)
+print(state_after.__dict__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EE5;&#x4E0A;&#x5199;&#x6CD5;&#x5728;&#x6E38;&#x620F;&#x529F;&#x80FD;&#x6269;&#x5C55;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;,&#x4E0A;&#x9762;&#x90A3;&#x79CD;&#x5199;&#x6CD5;&#x4F1A;&#x66B4;&#x9732;&#x51FA;&#x4E00;&#x4E9B;&#x95EE;&#x9898;.&#x4F8B;&#x5982;,&#x4E3A;&#x4E86;&#x9F13;&#x52B1;&#x73A9;&#x5BB6;&#x8FFD;&#x6C42;&#x9AD8;&#x5206;,&#x6211;&#x4EEC;&#x60F3;&#x7ED9;&#x6E38;&#x620F;&#x6DFB;&#x52A0;&#x8BA1;&#x5206;&#x529F;&#x80FD;.&#x4E8E;&#x662F;&#x7ED9;GameState&#x7C7B;&#x6DFB;&#x52A0;points&#x5B57;&#x6BB5;,&#x4EE5;&#x8868;&#x793A;&#x73A9;&#x5BB6;&#x7684;&#x5206;&#x6570;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GameState</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.points = <span class="hljs-number">0</span>
+        self.level = <span class="hljs-number">0</span>
+        self.lives = <span class="hljs-number">4</span>
+<span class="hljs-string">&apos;&apos;&apos;
+&#x95EE;&#x9898;:&#x5982;&#x679C;&#x73B0;&#x6709;&#x4E00;&#x4EFD;&#x65E7;&#x7684;GameState&#x5BF9;&#x8C61;pickle&#x6587;&#x4EF6;,&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53CD;&#x5E8F;&#x5217;&#x4E4B;&#x540E;&#x5F97;&#x5230;&#x7684;&#x5BF9;&#x8C61;&#x5E76;&#x4E0D;&#x4F1A;&#x5305;&#x542B;self.points&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5F53;&#x529F;&#x80FD;&#x6269;&#x5C55;&#x7684;&#x65F6;&#x5019;,pickle&#x4F1A;&#x5B58;&#x5728;&#x65E0;&#x6CD5;&#x517C;&#x5BB9;&#x7684;&#x95EE;&#x9898;.
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:(&#x4E3A;&#x7F3A;&#x5931;&#x7684;&#x5C5E;&#x6027;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x503C;)
+&#x501F;&#x52A9;&#x5185;&#x7F6E;&#x7684;copyreg&#x6A21;&#x5757;&#x5373;&#x53EF;.&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x7528;copyreg&#x6A21;&#x5757;&#x6CE8;&#x518C;&#x4E00;&#x4E9B;&#x51FD;&#x6570;,python&#x5BF9;&#x8C61;&#x7684;&#x5E8F;&#x5217;&#x5316;,&#x5C06;&#x7531;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x6765;&#x8D23;&#x5BF9;.&#x8FD9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x63A7;&#x5236;pickle&#x64CD;&#x4F5C;&#x7684;&#x884C;&#x4E3A;,&#x4EE4;&#x5176;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x53EF;&#x9760;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GameState</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, level=<span class="hljs-number">0</span>, lives=<span class="hljs-number">4</span>, points=<span class="hljs-number">0</span>)</span>:</span>
+        self.level = level
+        self.lives = lives
+        self.points = points
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pickle_game_state</span><span class="hljs-params">(game_state)</span>:</span>
+    kwargs = game_state.__dict__
+    <span class="hljs-keyword">return</span> unpickle_game_state, (kwargs,) <span class="hljs-comment">#&#x628A;&#x65E7;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;unpickle&#x51FD;&#x6570;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unpickle_game_state</span><span class="hljs-params">(kwargs)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;&#x5BF9;&#x6784;&#x9020;&#x5668;&#x7684;&#x5C0F;&#x5C0F;&#x5C01;&#x88C5;&apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> GameState(**kwargs)
+
+copyreg.pickle(GameState, pickle_game_state)
+<span class="hljs-comment"># &#x5F00;&#x59CB;&#x539F;&#x6765;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;</span>
+state = GameState()
+state.points += <span class="hljs-number">1000</span>
+serialized = pickle.dumps(state)
+state_after = pickle.loads(serialized)
+print(state_after.__dict__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x65B0;&#x589E;&#x5C5E;&#x6027;,&#x4F7F;&#x7528;pickle&#x5B9E;&#x73B0;&#x65B0;&#x65E7;&#x5BF9;&#x8C61;&#x7684;&#x517C;&#x5BB9;,&#x6761;&#x4EF6;:
+1. &#x65B0;&#x589E;&#x5C5E;&#x6027;&#x5728;&#x7C7B;&#x6784;&#x9020;&#x5668;&#x4E2D;&#x5FC5;&#x987B;&#x8D4B;&#x4E88;&#x9ED8;&#x8BA4;&#x503C;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GameState</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, level=<span class="hljs-number">0</span>,lives=<span class="hljs-number">4</span>,points=<span class="hljs-number">0</span>,magic=<span class="hljs-number">5</span>)</span>:</span>
+        self.level = level
+        self.lives = lives
+        self.points = points
+        self.magic = magic
+
+new_state_after = pickle.loads(serialized) <span class="hljs-comment">#&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x7C7B;&#x5BF9;&#x8C61;&#x6765;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x5C31;&#x7684;pickle&#x6570;&#x636E;</span>
+print(new_state_after.__dict__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x7528;&#x7248;&#x672C;&#x53F7;&#x6765;&#x7BA1;&#x7406;&#x7C7B;
+&#x6709;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4ECE;&#x73B0;&#x6709;&#x7684;python&#x7C7B;&#x4E2D;&#x79FB;&#x9664;&#x67D0;&#x4E9B;&#x5B57;&#x6BB5;,&#x800C;&#x8FD9;&#x79CD;&#x64CD;&#x4F5C;,&#x4F1A;&#x5BFC;&#x81F4;&#x65B0;&#x7C7B;&#x65E0;&#x6CD5;&#x4E0E;&#x65E7;&#x7C7B;&#x76F8;&#x517C;&#x5BB9;.&#x521A;&#x624D;&#x90A3;&#x79CD;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x65B9;&#x5F0F;&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;&#x8FD9;&#x79CD;&#x9700;&#x6C42;.
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:
+&#x4FEE;&#x6539;&#x6211;&#x4EEC;&#x5411;copyreg&#x6A21;&#x5757;&#x6CE8;&#x518C;&#x7684;&#x90A3;&#x4E2A;pickle_game_state&#x51FD;&#x6570;,&#x5728;&#x8BE5;&#x51FD;&#x6570;&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x7248;&#x672C;&#x53F7;&#x7684;&#x53C2;&#x6570;.&#x5728;&#x5BF9;&#x65B0;&#x7248;&#x7684;GameState&#x5BF9;&#x8C61;&#x8FDB;&#x884C;pickle&#x7684;&#x65F6;&#x5019;,pickle_game_state&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x5E8F;&#x5217;&#x5316;&#x540E;&#x7684;&#x65B0;&#x7248;&#x6570;&#x636E;&#x91CC;&#x9762;,&#x6DFB;&#x52A0;&#x503C;&#x4E3A;2&#x7684;version&#x53C2;&#x6570;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GameState</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, level=<span class="hljs-number">0</span>, points=<span class="hljs-number">0</span>, magic=<span class="hljs-number">5</span>)</span>:</span>
+        <span class="hljs-comment"># &#x4E0D;&#x518D;&#x5305;&#x542B;lives&#x5C5E;&#x6027;</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pickle_game_state</span><span class="hljs-params">(game_state)</span>:</span>
+    kwargs = game_state.__dict__
+    kwargs[<span class="hljs-string">&apos;version&apos;</span>] = <span class="hljs-number">2</span>
+    <span class="hljs-keyword">return</span> unpickle_game_state, (kwargs, )
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unpickle_game_state</span><span class="hljs-params">(kwargs)</span>:</span>
+    version = kwargs.pop(<span class="hljs-string">&apos;version&apos;</span>, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">if</span> version == <span class="hljs-number">1</span>:
+        kwargs.pop(<span class="hljs-string">&apos;lives&apos;</span>) <span class="hljs-comment"># &#x5982;&#x679C;&#x7248;&#x672C;&#x4E0D;&#x4E00;&#x6837;,&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53BB;&#x6389;&#x5728;&#x65B0;&#x7248;&#x672C;&#x7684;GameState&#x7C7B;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C5E;&#x6027;</span>
+    <span class="hljs-keyword">return</span> GameState(**kwargs)
+
+copyreg.pickle(GameState, pickle_game_state)
+state_after = pickle.loads(serialized)
+print(state_after.__dict__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x95EE;&#x9898;:&#x5F53;&#x7C7B;&#x7684;&#x540D;&#x79F0;&#x6539;&#x53D8;&#x4E4B;&#x540E;,&#x539F;&#x6709;&#x7684;&#x6570;&#x636E;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x6B63;&#x5E38;&#x6267;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;.&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x547D;&#x671F;&#x5185;,&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4F1A;&#x91CD;&#x6784;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;,&#x4FEE;&#x6539;&#x67D0;&#x4E9B;&#x7C7B;&#x7684;&#x540D;&#x79F0;,&#x5E76;&#x628A;&#x5B83;&#x4EEC;&#x79FB;&#x52A8;&#x5230;&#x5176;&#x4ED6;&#x6A21;&#x5757;.&#x5728;&#x505A;&#x8FD9;&#x79CD;&#x91CD;&#x6784;&#x65F6;,&#x5FC5;&#x987B;&#x591A;&#x52A0;&#x5C0F;&#x5FC3;,&#x5426;&#x5219;&#x4F1A;&#x4EE4;&#x7A0B;&#x5E8F;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x4F7F;&#x7528;pickle&#x6A21;&#x5757;.
+
+&#x628A;GameState&#x7C7B;&#x7684;&#x540D;&#x79F0;&#x6539;&#x4E3A;BetterGameState,&#x5E76;&#x628A;&#x539F;&#x6765;&#x7684;&#x7C7B;&#x4ECE;&#x7A0B;&#x5E8F;&#x4E2D;&#x5F7B;&#x5E95;&#x5220;&#x9664;:
+class BetterGameState(object):
+    def __init__(self, level=0, points=0, magic=5):
+        pass
+&#x62A5;&#x9519;:
+    pickle.loads(serialized)
+    &gt;&gt;&gt; AttributeError: Can&apos;t get attribute &apos;GameState&apos; on &lt; module &apos;__main__&apos; from &apos;my_code.py&apos;&gt;
+&#x539F;&#x56E0;:&#x5E8F;&#x5217;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x636E;,&#x628A;&#x8BE5;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7C7B;&#x7684;&#x5F15;&#x5165;&#x8DEF;&#x5F84;,&#x76F4;&#x63A5;&#x5199;&#x5728;&#x91CC;&#x9762;.
+
+(&#x56FA;&#x5B9A;&#x7684;&#x5F15;&#x5165;&#x8DEF;&#x5F84;)&#x89E3;&#x51B3;&#x65B9;&#x6848;:
+&#x7ED9;&#x51FD;&#x6570;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x6807;&#x8BC6;&#x7B26;,&#x4EE4;&#x5B83;&#x91C7;&#x7528;&#x8FD9;&#x4E2A;&#x6807;&#x8BC6;&#x7B26;&#x6765;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;unpickle&#x64CD;&#x4F5C;.&#x8FD9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x5728;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x65F6;&#x5019;,&#x80FD;&#x591F;&#x628A;&#x539F;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x5230;&#x540D;&#x79F0;&#x4E0D;&#x540C;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x4E0A;&#x9762;.&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x95F4;&#x63A5;&#x673A;&#x5236;&#x6765;&#x89E3;&#x51B3;&#x7C7B;&#x540D;&#x53D8;&#x66F4;&#x95EE;&#x9898;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BetterGameState</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, level=<span class="hljs-number">0</span>, points=<span class="hljs-number">0</span>, magic=<span class="hljs-number">5</span>)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+copyreg.pickle(BetterGameState, pickle_game_state)
+state = BetterGameState()
+serialized = pickle.dumps(state)
+print(serialized[:<span class="hljs-number">35</span>])
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x5185;&#x7F6E;&#x7684;pickle&#x6A21;&#x5757;,&#x53EA;&#x9002;&#x5408;&#x7528;&#x6765;&#x5728;&#x5F7C;&#x6B64;&#x4FE1;&#x4EFB;&#x7684;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;,&#x5BF9;&#x76F8;&#x5173;&#x5BF9;&#x8C61;&#x6267;&#x884C;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;</li>
+<li>&#x5982;&#x679C;&#x7528;&#x6CD5;&#x6BD4;&#x8F83;&#x590D;&#x6742;,&#x90A3;&#x4E48;pickle&#x6A21;&#x5757;&#x7684;&#x529F;&#x80FD;&#x4E5F;&#x8BB8;&#x5C31;&#x4F1A;&#x51FA;&#x95EE;&#x9898;</li>
+<li>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x5185;&#x7F6E;&#x7684;copyreg&#x6A21;&#x5757;&#x540C;pickle&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x4F7F;&#x7528;,&#x4EE5;&#x4FBF;&#x4E3A;&#x65E7;&#x6570;&#x636E;&#x6DFB;&#x52A0;&#x7F3A;&#x5931;&#x7684;&#x5C5E;&#x6027;&#x503C;\&#x8FDB;&#x884C;&#x7C7B;&#x7684;&#x7248;&#x672C;&#x7BA1;&#x7406;,&#x5E76;&#x7ED9;&#x5E8F;&#x5217;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x636E;&#x63D0;&#x4F9B;&#x56FA;&#x5B9A;&#x7684;&#x5F15;&#x5165;&#x8DEF;&#x5F84;.</li>
+</ul>
+<h2 id="&#x7B2C;45&#x6761;&#x5E94;&#x8BE5;&#x7528;datetime&#x6A21;&#x5757;&#x6765;&#x5904;&#x7406;&#x672C;&#x5730;&#x65F6;&#x95F4;&#x800C;&#x4E0D;&#x662F;&#x7528;time&#x6A21;&#x5757;">&#x7B2C;45&#x6761;:&#x5E94;&#x8BE5;&#x7528;datetime&#x6A21;&#x5757;&#x6765;&#x5904;&#x7406;&#x672C;&#x5730;&#x65F6;&#x95F4;,&#x800C;&#x4E0D;&#x662F;&#x7528;time&#x6A21;&#x5757;</h2>
+<blockquote>
+<p>UTC(Coordinated Universal Time)&#x662F;&#x4E00;&#x79CD;&#x6807;&#x51C6;&#x7684;&#x8868;&#x793A;&#x65B9;&#x5F0F;,&#x5B83;&#x4E0E;&#x65F6;&#x533A;&#x65E0;&#x5173;.&#x5BF9;&#x4E8E;&#x65E5;&#x5E38;&#x7684;&#x65F6;&#x95F4;&#x8868;&#x793A;,&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;UTC&#x6765;&#x8868;&#x793A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x4E0E;UNIX&#x65F6;&#x95F4;&#x539F;&#x70B9;(1970-01-01 00:00:00)&#x76F8;&#x5DEE;&#x51E0;&#x79D2;&#x6765;&#x8868;&#x793A;,&#x800C;&#x5E0C;&#x671B;&#x662F;:&#x6B63;&#x5348;(noon)&#x6216;&#x65E9;&#x6668;8&#x70B9;.</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x5728;&#x7A0B;&#x5E8F;&#x91CC;&#x9762;&#x5904;&#x7406;&#x65F6;&#x95F4;,&#x90A3;&#x4E48;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5BFB;&#x627E;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;,&#x4EE5;&#x4FBF;&#x5728;UTC&#x4E0E;&#x5F53;&#x5730;&#x65F6;&#x95F4;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x8F6C;&#x6362;,&#x5E76;&#x4EE5;&#x7528;&#x6237;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x7684;&#x8BF4;&#x6CD5;,&#x5C06;&#x5176;&#x63CF;&#x8FF0;&#x51FA;&#x6765;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> localtime, strftime
+now = <span class="hljs-number">1407694710</span>
+local_tuple = localtime(now)
+time_format = <span class="hljs-string">&apos;%Y-%m-%d %H:%M:%S&apos;</span>
+time_str = strftime(time_format, local_tuple)
+print(time_str)
+
+<span class="hljs-comment"># &#x628A;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x672C;&#x5730;&#x65F6;&#x95F4;&#x8F6C;&#x6362;&#x4E3A;UTC&#x65F6;&#x95F4;</span>
+<span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> mktime, strptime
+time_tuple = strptime(time_str, time_format)
+utc_now = mktime(time_tuple)
+print(utc_now)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x5982;&#x4F55;&#x628A;&#x67D0;&#x4E2A;&#x65F6;&#x533A;&#x7684;&#x5F53;&#x5730;&#x65F6;&#x95F4;&#x8F6C;&#x6362;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x65F6;&#x533A;&#x7684;&#x5F53;&#x5730;&#x65F6;&#x95F4;&#x5462;?
+&apos;&apos;&apos;</span>
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timezone
+now = datetime(<span class="hljs-number">2014</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>,<span class="hljs-number">18</span>,<span class="hljs-number">18</span>,<span class="hljs-number">30</span>)
+now_utc = now.replace(tzinfo=timezone.utc)
+now_local = now_utc.astimezone()
+print(now_local)
+
+<span class="hljs-comment">#&#x4F7F;&#x7528;datetime&#x628A;&#x672C;&#x5730;&#x65F6;&#x95F4;&#x8F7B;&#x677E;&#x8F6C;&#x6362;&#x6210;UTC&#x683C;&#x5F0F;&#x7684;UNIX&#x65F6;&#x95F4;&#x6233;</span>
+time_str = <span class="hljs-string">&apos;2014-08-10 11:18:30&apos;</span>
+now = datetime.strptime(time_str, time_format)
+time_tuple = now.timetuple()
+utc_now = mktime(time_tuple)
+print(utc_now)
+
+<span class="hljs-comment">#&#x628A;&#x5F53;&#x5730;&#x65F6;&#x95F4;&#x53EF;&#x9760;&#x7684;&#x8F6C;&#x6362;&#x4E3A;&#x53E6;&#x4E00;&#x79CD;&#x5F53;&#x5730;&#x65F6;&#x95F4;</span>
+arrival_nyc = <span class="hljs-string">&apos;2014-05-01 23:33:24&apos;</span>
+nyc_dt_naive = datetime.strptime(arrival_nyc, time_format)
+eastern = pytz.timezone(<span class="hljs-string">&apos;US/Eastern&apos;</span>)
+nyc_dt = eastern.localize(nyc_dt_naive)
+utc_dt = pytz.utc.normalize(nyc_dt.astimezone(pytz.utc))
+print(utc_dt)
+
+<span class="hljs-comment"># &#x5F97;&#x5230;UTC&#x683C;&#x5F0F;&#x7684;datetime&#x4E4B;&#x540E;,&#x518D;&#x628A;&#x5B83;&#x8F6C;&#x6362;&#x6210;&#x65E7;&#x91D1;&#x5C71;&#x5F53;&#x5730;&#x65F6;&#x95F4;</span>
+pacific = pytz.timezone(<span class="hljs-string">&apos;US/Pacific&apos;</span>)
+sf_dt = pacific.normalize(utc_dt.astimezone(pacific))
+print(sf_dt)
+
+<span class="hljs-comment">#&#x628A;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x8F7B;&#x677E;&#x8F6C;&#x6362;&#x6210;&#x5C3C;&#x6CCA;&#x5C14;&#x5F53;&#x5730;&#x65F6;&#x95F4;</span>
+nepal = pytz.timezone(<span class="hljs-string">&apos;Asia/Katmandu&apos;</span>)
+nepal_dt = nepal.normalize(utc_dt.astimezone(nepal))
+print(nepal_dt)
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x4E0D;&#x8981;&#x7528;time&#x6A21;&#x5757;&#x5728;&#x4E0D;&#x540C;&#x65F6;&#x533A;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x8F6C;&#x6362;</li>
+<li>&#x5982;&#x679C;&#x8981;&#x5728;&#x4E0D;&#x540C;&#x65F6;&#x533A;&#x4E4B;&#x95F4;,&#x53EF;&#x9760;&#x5730;&#x6267;&#x884C;&#x8F6C;&#x6362;&#x64CD;&#x4F5C;,&#x90A3;&#x5C31;&#x5E94;&#x8BE5;&#x628A;&#x5185;&#x7F6E;&#x7684;datetime&#x6A21;&#x5757;&#x4E0E;&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x63D0;&#x4F9B;&#x7684;pytz&#x6A21;&#x5757;&#x642D;&#x914D;&#x8D77;&#x6765;&#x4F7F;&#x7528;</li>
+<li>&#x5F00;&#x53D1;&#x8005;&#x603B;&#x662F;&#x5E94;&#x8BE5;&#x5148;&#x628A;&#x65F6;&#x95F4;&#x8868;&#x793A;&#x6210;UTC&#x683C;&#x5F0F;,&#x7136;&#x540E;&#x5BF9;&#x5176;&#x6267;&#x884C;&#x5404;&#x79CD;&#x8F6C;&#x6362;&#x64CD;&#x4F5C;,&#x6700;&#x540E;&#x518D;&#x628A;&#x5B83;&#x8F6C;&#x56DE;&#x672C;&#x5730;&#x65F6;&#x95F4;.</li>
+</ul>
+<h2 id="&#x7B2C;46&#x6761;-&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7B97;&#x6CD5;&#x4E0E;&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x7B2C;46&#x6761;: &#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7B97;&#x6CD5;&#x4E0E;&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
+<blockquote>
+<p>python&#x7684;&#x6807;&#x51C6;&#x7A0B;&#x5E8F;&#x5E93;&#x91CC;&#x9762;,&#x5185;&#x7F6E;&#x4E86;&#x5404;&#x79CD;&#x7B97;&#x6CD5;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;,&#x4EE5;&#x4F9B;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;.&#x8FD9;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x7B97;&#x6CD5;&#x4E0E;&#x6570;&#x636E;&#x7ED3;&#x6784;,&#x4E0D;&#x4EC5;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x6BD4;&#x8F83;&#x5FEB;,&#x800C;&#x4E14;&#x8FD8;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x7F16;&#x7A0B;&#x5DE5;&#x4F5C;.&#x5176;&#x4E2D;&#x67D0;&#x4E9B;&#x5B9E;&#x7528;&#x5DE5;&#x5177;,&#x662F;&#x5F88;&#x96BE;&#x7531;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x6B63;&#x786E;&#x5B9E;&#x73B0;&#x51FA;&#x6765;&#x7684;.&#x6240;&#x4EE5;,&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;python&#x81EA;&#x5E26;&#x7684;&#x529F;&#x80FD;,&#x800C;&#x4E0D;&#x8981;&#x91CD;&#x65B0;&#x53D6;&#x5B9E;&#x73B0;&#x5B83;&#x4EEC;,&#x4EE5;&#x8282;&#x7701;&#x65F6;&#x95F4;&#x548C;&#x7CBE;&#x529B;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;
+&#x53CC;&#x5411;&#x961F;&#x5217;
+collections&#x6A21;&#x5757;&#x4E2D;&#x7684;queue&#x7C7B;,&#x662F;&#x4E00;&#x79CD;&#x53CC;&#x5411;&#x961F;&#x5217;,&#x4ECE;&#x8BE5;&#x961F;&#x5217;&#x7684;&#x5934;&#x90E8;&#x6216;&#x5C3E;&#x90E8;&#x63D2;&#x5165;&#x6216;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x5143;&#x7D20;,&#x53EA;&#x9700;&#x6D88;&#x8017;&#x5E38;&#x6570;&#x7EA7;&#x522B;&#x7684;&#x65F6;&#x95F4;(O(1)).&#x8FD9;&#x4E00;&#x7279;&#x6027;&#x4F7F;&#x5F97;&#x5B83;&#x975E;&#x5E38;&#x9002;&#x5408;&#x7528;&#x6765;&#x8868;&#x793A;&#x5148;&#x8FDB;&#x5148;&#x51FA;(FIFO)&#x7684;&#x961F;&#x5217;.
+&apos;&apos;&apos;</span>
+fifo = deque()
+fifo.append(<span class="hljs-number">1</span>)
+x = fifo.popleft()
+<span class="hljs-string">&apos;&apos;&apos;
+&#x5185;&#x7F6E;list&#x7C7B;&#x578B;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E0A;&#x8FF0;&#x7684;FIFO&#x7684;&#x529F;&#x80FD;,&#x4F46;&#x662F;&#x4ECE;list&#x5934;&#x90E8;&#x63D2;&#x5165;&#x6216;&#x5220;&#x9664;&#x5143;&#x7D20;&#x4F1A;&#x6D88;&#x8017;&#x7EBF;&#x6027;&#x7EA7;&#x522B;&#x7684;&#x65F6;&#x95F4;(O(n))
+
+&#x6709;&#x5E8F;&#x5B57;&#x5178;
+&#x6807;&#x51C6;&#x7684;&#x5B57;&#x5178;&#x662F;&#x65E0;&#x5E8F;&#x7684;.&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x5728;&#x62E5;&#x6709;&#x76F8;&#x540C;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x4E24;&#x4E2A;dict&#x4E0A;&#x9762;&#x8FED;&#x4EE3;,&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x8FED;&#x4EE3;&#x987A;&#x5E8F;.&#x6807;&#x51C6;&#x7684;&#x5B57;&#x5178;&#x4E4B;&#x6240;&#x4EE5;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x5947;&#x602A;&#x7684;&#x73B0;&#x8C61;,&#x662F;&#x7531;&#x5176;&#x5FEB;&#x901F;&#x54C8;&#x5E0C;&#x8868;(fast hash table)&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x800C;&#x5BFC;&#x81F4;&#x7684;.
+&apos;&apos;&apos;</span>
+a = {}
+a[<span class="hljs-string">&apos;foo&apos;</span>] =<span class="hljs-number">1</span>
+a[<span class="hljs-string">&apos;bar&apos;</span>] = <span class="hljs-number">2</span>
+<span class="hljs-comment"># randomly populate &apos;b&apos; to cause hash conflicts</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    z = randint(<span class="hljs-number">99</span>, <span class="hljs-number">1013</span>)
+    b = {}
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(z):
+        b[i] = i
+    b[<span class="hljs-string">&apos;foo&apos;</span>] = <span class="hljs-number">1</span>
+    b[<span class="hljs-string">&apos;bar&apos;</span>] = <span class="hljs-number">2</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(z):
+        <span class="hljs-keyword">del</span> b[i]
+    <span class="hljs-keyword">if</span> str(b) != str(a):
+        <span class="hljs-keyword">break</span>
+print(a)
+print(b)
+print(<span class="hljs-string">&apos;Equal?&apos;</span>, a==b)
+
+<span class="hljs-string">&apos;&apos;&apos;
+collections&#x6A21;&#x5757;&#x4E2D;&#x7684;OrderedDict&#x7C7B;,&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x5B57;&#x5178;,&#x5B83;&#x80FD;&#x591F;&#x6309;&#x7167;&#x952E;&#x7684;&#x63D2;&#x5165;&#x987A;&#x5E8F;,&#x6765;&#x4FDD;&#x5B58;&#x952E;&#x503C;&#x5BF9;&#x5728;&#x5B57;&#x5178;&#x4E2D;&#x7684;&#x6B21;&#x5E8F;.
+&apos;&apos;&apos;</span>
+a = OrderedDict()
+a[<span class="hljs-string">&apos;foo&apos;</span>] = <span class="hljs-number">1</span>
+a[<span class="hljs-string">&apos;bar&apos;</span>] = <span class="hljs-number">2</span>
+b = OrderedDict()
+b[<span class="hljs-string">&apos;foo&apos;</span>] = <span class="hljs-string">&apos;red&apos;</span>
+b[<span class="hljs-string">&apos;bar&apos;</span>] = <span class="hljs-string">&apos;blue&apos;</span>
+
+<span class="hljs-keyword">for</span> value1, value2 <span class="hljs-keyword">in</span> zip(a.values(), b.values()):
+    print(value1,value2)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x5E26;&#x6709;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x5B57;&#x5178;
+&#x5B57;&#x5178;&#x53EF;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x5E76;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x7EDF;&#x8BA1;&#x6570;&#x636E;.&#x4F46;&#x662F;,&#x7531;&#x4E8E;&#x5B57;&#x5178;&#x91CC;&#x9762;&#x672A;&#x5FC5;&#x6709;&#x6211;&#x4EEC;&#x8981;&#x67E5;&#x8BE2;&#x7684;&#x90A3;&#x4E2A;&#x952E;,&#x6240;&#x4EE5;&#x5728;&#x7528;&#x5B57;&#x5178;&#x4FDD;&#x5B58;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x65F6;&#x5019;,&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x7528;&#x7A0D;&#x5FAE;&#x9EBB;&#x70E6;&#x4E00;&#x70B9;&#x7684;&#x65B9;&#x5F0F;,&#x624D;&#x80FD;&#x5B9E;&#x73B0;.
+&apos;&apos;&apos;</span>
+stats = {}
+key = <span class="hljs-string">&apos;my_counter&apos;</span>
+<span class="hljs-keyword">if</span> key <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> stats:
+    stats[key] = <span class="hljs-number">0</span>
+stats[key] += <span class="hljs-number">1</span>
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4F7F;&#x7528;collections&#x6A21;&#x5757;&#x4E2D;&#x7684;defaultdict&#x7C7B;&#x6765;&#x7B80;&#x5316;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;.
+&apos;&apos;&apos;</span>
+stats = defaultdict(int)
+stats[<span class="hljs-string">&apos;my_counter&apos;</span>] += <span class="hljs-number">1</span>
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x5806;&#x961F;&#x5217;(&#x4F18;&#x5148;&#x7EA7;&#x961F;&#x5217;)
+&#x5806;(heap)&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x961F;&#x5217;,&#x5F88;&#x9002;&#x5408;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x4F18;&#x5148;&#x961F;&#x5217;.heapq&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;heappush,heappop&#x548C;nsmallest&#x7B49;&#x4E00;&#x4E9B;&#x51FD;&#x6570;,&#x80FD;&#x591F;&#x5728;&#x6807;&#x51C6;&#x7684;list&#x7C7B;&#x578B;&#x4E4B;&#x4E2D;&#x521B;&#x5EFA;&#x5806;&#x7ED3;&#x6784;.
+&apos;&apos;&apos;</span>
+a = []
+heappush(a, <span class="hljs-number">5</span>)
+heappush(a, <span class="hljs-number">3</span>)
+heappush(a, <span class="hljs-number">7</span>)
+heappush(a, <span class="hljs-number">4</span>)
+print(heappop(a),heappop(a),heappop(a),heappop(a))
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x7528;heapq&#x628A;&#x8FD9;&#x6837;&#x7684;list&#x5236;&#x4F5C;&#x597D;&#x4E4B;&#x540E;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6;&#x573A;&#x5408;&#x4F7F;&#x7528;&#x5B83;.&#x53EA;&#x8981;&#x8BBF;&#x95EE;&#x5806;&#x4E2D;&#x4E0B;&#x6807;&#x4E3A;0&#x7684;&#x90A3;&#x4E2A;&#x5143;&#x7D20;,&#x5C31;&#x603B;&#x80FD;&#x67E5;&#x51FA;&#x6700;&#x5C0F;&#x503C;
+&apos;&apos;&apos;</span>
+a = []
+heappush(a, <span class="hljs-number">5</span>)
+heappush(a, <span class="hljs-number">3</span>)
+heappush(a, <span class="hljs-number">7</span>)
+heappush(a, <span class="hljs-number">4</span>)
+<span class="hljs-keyword">assert</span> a[<span class="hljs-number">0</span>]==nsmallest(<span class="hljs-number">1</span>,a)[<span class="hljs-number">0</span>] == <span class="hljs-number">3</span>
+<span class="hljs-string">&apos;&apos;&apos;
+&#x5728;list&#x4E0A;&#x8C03;&#x7528;sort&#x65B9;&#x6CD5;&#x4E4B;&#x540E;,&#x8BE5;list&#x4F9D;&#x7136;&#x80FD;&#x591F;&#x4FDD;&#x6301;&#x5806;&#x7684;&#x7ED3;&#x6784;
+&#x539F;&#x56E0;:&#x5806;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;,&#x603B;&#x662F;&#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5176;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;.&#x4E0B;&#x6807;&#x4E3A;k&#x7684;&#x7236;&#x8282;&#x70B9;,&#x5176;&#x5DE6;&#x53F3;&#x4E24;&#x4E2A;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x4E0B;&#x6807;&#x5206;&#x522B;&#x662F;2k+1&#x548C;2k+2
+&apos;&apos;&apos;</span>
+print(<span class="hljs-string">&apos;Before:&apos;</span>,a)
+a.sort()
+print(<span class="hljs-string">&apos;After: &apos;</span>, a)
+<span class="hljs-string">&apos;&apos;&apos;
+&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;:heapq&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E0E;&#x5217;&#x8868;&#x957F;&#x5EA6;&#x7684;&#x5BF9;&#x6570;&#x6210;&#x6B63;&#x6BD4;(O(lgN)).
+
+&#x4E8C;&#x5206;&#x67E5;&#x627E;:&#x5728;list&#x4E0A;&#x4F7F;&#x7528;index&#x65B9;&#x6CD5;&#x6765;&#x641C;&#x7D22;&#x67D0;&#x4E2A;&#x5143;&#x7D20;,&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(n)
+x = list(range(10**6))
+i = x.index(991234)
+
+bisect&#x6A21;&#x5757;&#x4E2D;&#x7684;bisect_left&#x7B49;&#x51FD;&#x6570;,&#x63D0;&#x4F9B;&#x4E86;&#x9AD8;&#x6548;&#x7684;&#x4E8C;&#x5206;&#x6298;&#x534A;&#x67E5;&#x627E;&#x641C;&#x7D22;&#x6CD5;,&#x80FD;&#x591F;&#x5728;&#x4E00;&#x7CFB;&#x5217;&#x6392;&#x597D;&#x987A;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#x4E4B;&#x4E2D;&#x641C;&#x5BFB;&#x67D0;&#x4E2A;&#x503C;.&#x6709;bisect_left&#x51FD;&#x6570;&#x6240;&#x8FD4;&#x56DE;&#x7684;&#x7D22;&#x5F15;,&#x8868;&#x793A;&#x5E26;&#x641C;&#x5BFB;&#x7684;&#x503C;&#x5728;&#x5E8F;&#x5217;&#x4E2D;&#x7684;&#x63D2;&#x5165;&#x70B9;.
+&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(lgN)
+&apos;&apos;&apos;</span>
+i = bisect_left(x, <span class="hljs-number">991234</span>)
+</code></pre>
+<h3 id="itertools&#x6A21;&#x5757;">itertools&#x6A21;&#x5757;</h3>
+<p>itertools&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5206;&#x4E09;&#x5927;&#x7C7B;:</p>
+<ul>
+<li>&#x80FD;&#x591F;&#x628A;&#x8FED;&#x4EE3;&#x5668;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x7684;&#x51FD;&#x6570;:<ul>
+<li>chain:&#x5C06;&#x591A;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x6309;&#x987A;&#x5E8F;&#x8FDE;&#x6210;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;</li>
+<li>cycle:&#x65E0;&#x9650;&#x5730;&#x91CD;&#x590D;&#x67D0;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x5143;&#x7D20;</li>
+<li>tee:&#x628A;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x62C6;&#x5206;&#x6210;&#x591A;&#x4E2A;&#x5E73;&#x884C;&#x7684;&#x8FED;&#x4EE3;&#x5668;</li>
+<li>zip_longest:&#x4E0E;&#x5185;&#x7F6E;&#x7684;zip&#x51FD;&#x6570;&#x76F8;&#x4F3C;,&#x4F46;&#x662F;&#x5B83;&#x53EF;&#x4EE5;&#x5E94;&#x5BF9;&#x957F;&#x5EA6;&#x4E0D;&#x540C;&#x7684;&#x8FED;&#x4EE3;&#x5668;</li>
+</ul>
+</li>
+<li>&#x80FD;&#x591F;&#x4ECE;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x8FC7;&#x6EE4;&#x5143;&#x7D20;&#x7684;&#x51FD;&#x6570;:<ul>
+<li>islice: &#x5728;&#x4E0D;&#x8FDB;&#x884C;&#x590D;&#x5236;&#x7684;&#x524D;&#x63D0;&#x4E0B;,&#x6839;&#x636E;&#x7D22;&#x5F15;&#x503C;&#x6765;&#x5207;&#x5272;&#x8FED;&#x4EE3;&#x5668;</li>
+<li>takewhile:&#x5728;&#x5224;&#x5B9A;&#x51FD;&#x6570;(predicate function,&#x8C13;&#x8BCD;&#x51FD;&#x6570;)&#x4E3A;True&#x7684;&#x65F6;&#x5019;,&#x4ECE;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x9010;&#x4E2A;&#x8FD4;&#x56DE;&#x5143;&#x7D20;</li>
+<li>dropwhile:&#x4ECE;&#x5224;&#x5B9A;&#x51FD;&#x6570;&#x521D;&#x6B21;&#x4E3A;False&#x7684;&#x5730;&#x65B9;&#x5F00;&#x59CB;,&#x9010;&#x4E2A;&#x8FD4;&#x56DE;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;.</li>
+<li>filterfalse:&#x4ECE;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x9010;&#x4E2A;&#x8FD4;&#x56DE;&#x80FD;&#x4EE4;&#x5224;&#x5B9A;&#x51FD;&#x6570;&#x4E3A;False&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;.&#x5176;&#x6548;&#x679C;&#x4E0E;&#x5185;&#x7F6E;&#x7684;filter&#x51FD;&#x6570;&#x76F8;&#x53CD;</li>
+</ul>
+</li>
+<li>&#x80FD;&#x591F;&#x628A;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x7684;&#x51FD;&#x6570;:<ul>
+<li>product:&#x6839;&#x636E;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x8BA1;&#x7B97;&#x7B1B;&#x5361;&#x5C14;&#x79EF;,&#x5E76;&#x5C06;&#x5176;&#x8FD4;&#x56DE;.&#x53EF;&#x4EE5;&#x7528;product&#x6765;&#x6539;&#x5199;&#x6DF1;&#x5EA6;&#x5D4C;&#x5957;&#x7684;&#x5217;&#x8868;&#x63A8;&#x5BFC;&#x64CD;&#x4F5C;</li>
+<li>permutations: &#x7528;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6784;&#x5EFA;&#x957F;&#x5EA6;&#x4E3A;N&#x7684;&#x5404;&#x79CD;&#x6709;&#x5E8F;&#x6392;&#x5217;,&#x5E76;&#x5C06;&#x6240;&#x6709;&#x6392;&#x5217;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x7ED9;&#x8C03;&#x7528;&#x8005;</li>
+<li>combination:&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6784;&#x5EFA;&#x957F;&#x5EA6;&#x4E3A;N&#x7684;&#x5404;&#x79CD;&#x65E0;&#x5E8F;&#x7EC4;&#x5408;,&#x5E76;&#x5C06;&#x6240;&#x6709;&#x7EC4;&#x5408;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x7ED9;&#x8C03;&#x7528;&#x8005;</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x7528;python&#x5185;&#x7F6E;&#x7684;&#x6A21;&#x5757;&#x6765;&#x63CF;&#x8FF0;&#x5404;&#x79CD;&#x7B97;&#x6CD5;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;</li>
+<li>&#x5F00;&#x53D1;&#x8005;&#x4E0D;&#x5E94;&#x8BE5;&#x81EA;&#x5DF1;&#x53BB;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x90A3;&#x4E9B;&#x529F;&#x80FD;,&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5F88;&#x96BE;&#x628A;&#x5B83;&#x5199;&#x597D;</li>
+</ul>
+<h2 id="&#x7B2C;47&#x6761;-&#x5728;&#x91CD;&#x89C6;&#x7CBE;&#x786E;&#x5EA6;&#x7684;&#x573A;&#x5408;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;decimal">&#x7B2C;47&#x6761;: &#x5728;&#x91CD;&#x89C6;&#x7CBE;&#x786E;&#x5EA6;&#x7684;&#x573A;&#x5408;,&#x5E94;&#x8BE5;&#x4F7F;&#x7528;decimal</h2>
+<blockquote>
+<p>python&#x8BED;&#x8A00;&#x5F88;&#x9002;&#x5408;&#x7528;&#x6765;&#x7F16;&#x5199;&#x4E0E;&#x6570;&#x503C;&#x578B;&#x6570;&#x636E;&#x6253;&#x4EA4;&#x9053;&#x7684;&#x4EE3;&#x7801;.&#x9075;&#x5FAA;IEEE 754&#x6807;&#x51C6;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;
+&#x6839;&#x636E;&#x540C;&#x5316;&#x65F6;&#x957F;&#x548C;&#x8D39;&#x7387;,&#x8BA1;&#x7B97;&#x7528;&#x6237;&#x62E8;&#x6253;&#x56FD;&#x9645;&#x957F;&#x9014;&#x7535;&#x8BDD;&#x6240;&#x5E94;&#x652F;&#x4ED8;&#x7684;&#x8D39;&#x7528;:&#x5047;&#x5982;&#x7528;&#x6237;&#x6253;&#x4E86;3&#x5206;42&#x79D2;,&#x8D39;&#x7387;&#x4E3A;&#x6BCF;&#x5206;&#x949F;1.45&#x5143;,&#x90A3;&#x4E48;&#x8FD9;&#x6B21;&#x901A;&#x8BDD;&#x8D39;&#x7528;&#x4E3A;&#x591A;&#x5C11;?
+&apos;&apos;&apos;</span>
+rate = <span class="hljs-number">1.45</span>
+seconds = <span class="hljs-number">3</span>*<span class="hljs-number">60</span>+<span class="hljs-number">42</span>
+cost = rate*seconds/<span class="hljs-number">60</span>
+print(cost)
+print(round(cost, <span class="hljs-number">2</span>))
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x6211;&#x4EEC;&#x53D1;&#x73B0;round&#x51FD;&#x6570;&#x4F1A;&#x628A;&#x5206;&#x4F4D;&#x53F3;&#x4FA7;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x5168;&#x90E8;&#x7701;&#x53BB;.&#x800C;&#x5B9E;&#x9645;&#x4E0A;,&#x4E0D;&#x8DB3;&#x4E00;&#x5206;&#x94B1;&#x7684;&#x90E8;&#x5206;,&#x5E94;&#x8BE5;&#x6309;1&#x5206;&#x94B1;&#x6765;&#x6536;&#x53D6;;
+&#x6BD4;&#x5982;,&#x5F53;&#x8D39;&#x7528;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x5C0F;&#x7684;&#x65F6;&#x5019;,round&#x51FD;&#x6570;&#x4F1A;&#x628A;&#x8D39;&#x7528;&#x53D8;&#x4E3A;0,&#x800C;&#x8FD9;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7ED3;&#x679C;.
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:
+&#x5185;&#x7F6E;&#x7684;decimal&#x6A21;&#x5757;&#x4E2D;,&#x6709;&#x4E2A;Decimal&#x7C7B;,&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E9B;&#x95EE;&#x9898;.&#x8BE5;&#x7C7B;&#x4F1A;&#x8BA1;&#x7B97;&#x51FA;&#x7CBE;&#x786E;&#x7684;&#x7ED3;&#x6784;,&#x800C;&#x4E0D;&#x4F1A;&#x6C42;&#x51FA;&#x8FD1;&#x4F3C;&#x503C;
+&apos;&apos;&apos;</span>
+rate = Decimal(<span class="hljs-string">&apos;1.45&apos;</span>)
+seconds = Decimal(<span class="hljs-string">&apos;222&apos;</span>) <span class="hljs-comment"># 3*60+42</span>
+cost = rate*seconds/Decimal(<span class="hljs-string">&apos;60&apos;</span>)
+print(cost)
+
+<span class="hljs-string">&apos;&apos;&apos;
+Decimal&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x7684;&#x51FD;&#x6570;,&#x5B83;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x5F00;&#x53D1;&#x8005;&#x6240;&#x8981;&#x6C42;&#x7684;&#x7CBE;&#x5EA6;&#x53CA;&#x820D;&#x5165;&#x65B9;&#x5F0F;,&#x6765;&#x51C6;&#x786E;&#x5730;&#x8C03;&#x6574;&#x6570;&#x503C;.
+&apos;&apos;&apos;</span>
+rounded = cost.quantize(Decimal(<span class="hljs-string">&apos;0.01&apos;</span>), rounding=ROUND_UP)
+print(rounded)
+
+<span class="hljs-string">&apos;&apos;&apos;
+quantize&#x65B9;&#x6CD5;&#x4E5F;&#x80FD;&#x5BF9;&#x90A3;&#x79CD;&#x65F6;&#x957F;&#x5F88;&#x77ED;,&#x8D39;&#x7528;&#x5F88;&#x4F4E;&#x7684;&#x7535;&#x8BDD;,&#x6B63;&#x786E;&#x5730;&#x8FDB;&#x884C;&#x8BA1;&#x8D39;
+&apos;&apos;&apos;</span>
+rate = Decimal(<span class="hljs-string">&apos;0.01&apos;</span>)
+seconds = Decimal(<span class="hljs-string">&apos;5&apos;</span>)
+cost = rate*seconds/Decimal(<span class="hljs-string">&apos;60&apos;</span>)
+print(cost)
+rounded = cost.quantize(Decimal(<span class="hljs-string">&apos;0.01&apos;</span>), rounding=ROUND_UP)
+print(rounded)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x867D;&#x7136;Decimal&#x7C7B;&#x5F88;&#x9002;&#x5408;&#x6267;&#x884C;&#x5B9A;&#x70B9;&#x6570;&#x7684;&#x8FD0;&#x7B97;,&#x4F46;&#x5B83;&#x5728;&#x7CBE;&#x786E;&#x5EA6;&#x65B9;&#x9762;&#x4ECD;&#x6709;&#x5C40;&#x9650;.
+&#x4F8B;&#x5982;,1/3&#x8FD9;&#x4E2A;&#x6570;,&#x5C31;&#x53EA;&#x80FD;&#x7528;&#x8FD1;&#x4F3C;&#x503C;&#x6765;&#x8868;&#x793A;.&#x5982;&#x679C;&#x8981;&#x7528;&#x7CBE;&#x5EA6;&#x4E0D;&#x53D7;&#x9650;&#x5236;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x8868;&#x8FBE;&#x6709;&#x7406;&#x6570;,&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;Fraction&#x7C7B;,&#x8BE5;&#x7C7B;&#x5305;&#x542B;&#x4E86;&#x5185;&#x7F6E;&#x7684;fractions&#x6A21;&#x5757;&#x91CC;.
+&apos;&apos;&apos;</span>
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x7F16;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x7528;&#x5230;&#x7684;&#x6BCF;&#x4E00;&#x79CD;&#x6570;&#x503C;,&#x6211;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x62FF;&#x5BF9;&#x5E94;&#x7684;python&#x5185;&#x7F6E;&#x7C7B;&#x578B;,&#x6216;&#x5185;&#x7F6E;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x7C7B;&#x8868;&#x793A;</li>
+<li>Decimal&#x7C7B;&#x975E;&#x5E38;&#x9002;&#x5408;&#x7528;&#x5728;&#x90A3;&#x79CD;&#x5BF9;&#x7CBE;&#x5EA6;&#x8981;&#x6C42;&#x5F88;&#x9AD8;,&#x4E14;&#x5BF9;&#x820D;&#x5165;&#x884C;&#x4E3A;&#x8981;&#x6C42;&#x5F88;&#x4E25;&#x7684;&#x573A;&#x5408;,&#x4F8B;&#x5982;,&#x6D89;&#x53CA;&#x8D27;&#x5E01;&#x8BA1;&#x7B97;&#x7684;&#x573A;&#x5408;.</li>
+</ul>
+<h2 id="&#x7B2C;48&#x6761;-&#x5B66;&#x4F1A;&#x5B89;&#x88C5;&#x6709;python&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x6240;&#x6784;&#x5EFA;&#x7684;&#x6A21;&#x5757;">&#x7B2C;48&#x6761;: &#x5B66;&#x4F1A;&#x5B89;&#x88C5;&#x6709;python&#x5F00;&#x53D1;&#x8005;&#x793E;&#x533A;&#x6240;&#x6784;&#x5EFA;&#x7684;&#x6A21;&#x5757;</h2>
+<blockquote>
+<p>python&#x6709;&#x4E2A;&#x4E2D;&#x592E;&#x4ED3;&#x5E93;(pypi.python.org),&#x91CC;&#x9762;&#x5B58;&#x653E;&#x7740;&#x5404;&#x79CD;&#x6A21;&#x5757;,&#x4EE5;&#x4F9B;&#x7A0B;&#x5E8F;&#x5F00;&#x53D1;&#x8005;&#x5B89;&#x88C5;&#x5E76;&#x4F7F;&#x7528;.</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x4E0D;&#x592A;&#x719F;&#x6089;&#x7684;&#x7F16;&#x7A0B;&#x96BE;&#x9898;,&#x90A3;&#x5C31;&#x53D6;Python Package Index(PyPI)&#x770B;&#x770B;.</p>
+<p>&#x4E3A;&#x4E86;&#x5B89;&#x88C5;&#x7531;Package index&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x6A21;&#x5757;,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x540D;&#x4E3A;pip&#x7684;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch05.html" class="navigation navigation-prev " aria-label="Previous page: 第五章 并发及并行">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch07.html" class="navigation navigation-next " aria-label="Next page: 第七章 协作开发">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第六章 内置模块","level":"1.7","depth":1,"next":{"title":"第七章 协作开发","level":"1.8","depth":1,"path":"ch07.md","ref":"ch07.md","articles":[]},"previous":{"title":"第五章 并发及并行","level":"1.6","depth":1,"path":"ch05.md","ref":"ch05.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch06.md","mtime":"2018-10-15T09:18:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T08:18:38.081Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

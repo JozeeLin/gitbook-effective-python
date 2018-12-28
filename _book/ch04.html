@@ -1,0 +1,996 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第四章 元类及属性 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch05.html" />
+    
+    
+    <link rel="prev" href="ch03.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    第一章 用pythonic方式来思考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    第二章 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    第三章 类与继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    第四章 元类及属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch05.html">
+            
+                <a href="ch05.html">
+            
+                    
+                    第五章 并发及并行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ch06.html">
+            
+                <a href="ch06.html">
+            
+                    
+                    第六章 内置模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch07.html">
+            
+                <a href="ch07.html">
+            
+                    
+                    第七章 协作开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch08.html">
+            
+                <a href="ch08.html">
+            
+                    
+                    第八章 部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >第四章 元类及属性</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;4&#x7AE0;-&#x5143;&#x7C7B;&#x53CA;&#x5C5E;&#x6027;">&#x7B2C;4&#x7AE0; &#x5143;&#x7C7B;&#x53CA;&#x5C5E;&#x6027;</h1>
+<blockquote>
+<p>&#x7B80;&#x5355;&#x6765;&#x8BF4;,&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;python&#x7684;class&#x8BED;&#x53E5;&#x8F6C;&#x8BD1;&#x4E3A;&#x5143;&#x7C7B;,&#x5E76;&#x4EE4;&#x5176;&#x5728;&#x6BCF;&#x6B21;&#x5B9A;&#x4E49;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#x65F6;,&#x90FD;&#x63D0;&#x4F9B;&#x72EC;&#x7279;&#x7684;&#x884C;&#x4E3A;.</p>
+<p>python&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5947;&#x5999;&#x7684;&#x7279;&#x6027;,&#x90A3;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x52A8;&#x6001;&#x7684;&#x5B9A;&#x4E49;&#x5BF9;&#x5C5E;&#x6027;&#x7684;&#x8BBF;&#x95EE;&#x64CD;&#x4F5C;.&#x628A;&#x8FD9;&#x79CD;&#x52A8;&#x6001;&#x5C5E;&#x6027;&#x673A;&#x5236;&#x4E0E;python&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x673A;&#x5236;&#x76F8;&#x7ED3;&#x5408;,&#x5C31;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x987A;&#x5229;&#x5730;&#x5C06;&#x7B80;&#x5355;&#x7684;&#x7C7B;&#x9010;&#x6E10;&#x53D8;&#x6362;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x7C7B;.</p>
+</blockquote>
+<h2 id="&#x7B2C;29&#x6761;&#x7528;&#x7EAF;&#x5C5E;&#x6027;&#x53D6;&#x4EE3;get&#x548C;set&#x65B9;&#x6CD5;">&#x7B2C;29&#x6761;:&#x7528;&#x7EAF;&#x5C5E;&#x6027;&#x53D6;&#x4EE3;get&#x548C;set&#x65B9;&#x6CD5;</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Resistor</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, ohms)</span>:</span>
+        self.ohms = ohms
+        self.voltage = <span class="hljs-number">0</span>
+        self.current = <span class="hljs-number">0</span>
+r1 = Resistor(<span class="hljs-number">50e3</span>)
+r1.ohms = <span class="hljs-number">10e3</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VoltageResistance</span><span class="hljs-params">(Resistor)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, ohms)</span>:</span>
+        super().__init__(ohms)
+        self._voltage = <span class="hljs-number">0</span>
+
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">voltage</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._voltage
+
+<span class="hljs-meta">    @voltage.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">voltage</span><span class="hljs-params">(self, voltage)</span>:</span>
+        self._voltage = voltage
+           self.current = self._voltage/self.ohms
+
+r2 = VoltageResistance(<span class="hljs-number">1e3</span>)
+print(<span class="hljs-string">&apos;Before: %5r amps&apos;</span> % r2.current)
+r2.voltage = <span class="hljs-number">10</span>
+print(<span class="hljs-string">&apos;After: %5r amps&apos;</span> % r2.current)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4E3A;&#x5C5E;&#x6027;&#x6307;&#x5B9A;setter&#x65B9;&#x6CD5;,&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#x505A;&#x7C7B;&#x578B;&#x9A8C;&#x8BC1;&#x53CA;&#x6570;&#x503C;&#x9A8C;&#x8BC1;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoundedResistance</span><span class="hljs-params">(Resistor)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, ohms)</span>:</span>
+        super().__init__(ohms)
+
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ohms</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._ohms
+
+<span class="hljs-meta">    @ohms.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ohms</span><span class="hljs-params">(self, ohms)</span>:</span>
+        <span class="hljs-keyword">if</span> ohms&lt;=<span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;%f ohms must be &gt; 0&apos;</span> % ohms)
+        self._ohms = ohms
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x7528;@property&#x6765;&#x9632;&#x6B62;&#x7236;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x906D;&#x5230;&#x4FEE;&#x6539;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FixedResistance</span><span class="hljs-params">(Resistor)</span>:</span>
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ohms</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._ohms
+
+<span class="hljs-meta">    @ohms.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ohms</span><span class="hljs-params">(self, ohms)</span>:</span>
+        <span class="hljs-keyword">if</span> hasattr(self, <span class="hljs-string">&apos;_ohms&apos;</span>):
+            <span class="hljs-keyword">raise</span> AttributeError(<span class="hljs-string">&quot;Can&apos;t set attribute&quot;</span>)
+        self._ohms = ohms
+
+<span class="hljs-string">&apos;&apos;&apos;
+r4 = FixedResistance(1e3)
+r4.ohms = 2e3
+&#x62A5;&#x9519;:&quot;AttributeError: Can&apos;t set Attribute&quot;
+&apos;&apos;&apos;</span>
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x7F16;&#x5199;&#x65B0;&#x7C7B;&#x65F6;,&#x5E94;&#x8BE5;&#x7528;&#x7B80;&#x5355;&#x7684;public&#x5C5E;&#x6027;&#x6765;&#x5B9A;&#x4E49;&#x5176;&#x63A5;&#x53E3;,&#x800C;&#x4E0D;&#x8981;&#x624B;&#x5DE5;&#x5B9E;&#x73B0;set&#x548C;get&#x65B9;&#x6CD5;</li>
+<li>&#x5982;&#x679C;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x7684;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;,&#x9700;&#x8981;&#x8868;&#x73B0;&#x51FA;&#x7279;&#x6B8A;&#x7684;&#x884C;&#x4E3A;,&#x90A3;&#x5C31;&#x7528;@property&#x6765;&#x5B9A;&#x4E49;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;</li>
+<li>@property&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x9075;&#x5FAA;&#x6700;&#x5C0F;&#x60CA;&#x8BB6;&#x539F;&#x5219;,&#x800C;&#x4E0D;&#x5E94;&#x4EA7;&#x751F;&#x5947;&#x602A;&#x7684;&#x526F;&#x4F5C;&#x7528;</li>
+<li>@property&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x6267;&#x884C;&#x5F97;&#x8FC5;&#x901F;&#x4E00;&#x4E9B;,&#x7F13;&#x6162;&#x6216;&#x590D;&#x6742;&#x7684;&#x5DE5;&#x4F5C;,&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x666E;&#x901A;&#x7684;&#x65B9;&#x6CD5;&#x91CC;&#x9762;</li>
+</ul>
+<h2 id="&#x7B2C;30&#x6761;-&#x8003;&#x8651;&#x7528;property&#x6765;&#x4EE3;&#x66FF;&#x5C5E;&#x6027;&#x91CD;&#x6784;">&#x7B2C;30&#x6761;: &#x8003;&#x8651;&#x7528;@property&#x6765;&#x4EE3;&#x66FF;&#x5C5E;&#x6027;&#x91CD;&#x6784;</h2>
+<blockquote>
+<p>@property&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;,&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x628A;&#x7B80;&#x5355;&#x7684;&#x6570;&#x503C;&#x5C5E;&#x6027;&#x8FC1;&#x79FB;&#x4E3A;&#x5B9E;&#x65F6;&#x8BA1;&#x7B97;(on-the-fly calculation,&#x6309;&#x9700;&#x8BA1;&#x7B97;,&#x52A8;&#x6001;&#x8BA1;&#x7B97;)&#x7684;&#x5C5E;&#x6027;,&#x8FD9;&#x79CD;&#x7528;&#x6CD5;&#x4E5F;&#x662F;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;.</p>
+<p>&#x6F0F;&#x6876;&#x7B97;&#x6CD5;:&#x628A;&#x8BF7;&#x6C42;&#x6BD4;&#x4F5C;&#x6C34;,&#x6C34;&#x6765;&#x4E86;&#x90FD;&#x5148;&#x653E;&#x8FDB;&#x6876;&#x91CC;,&#x5E76;&#x4EE5;&#x9650;&#x5B9A;&#x7684;&#x901F;&#x5EA6;&#x51FA;&#x6C34;,&#x5F53;&#x6C34;&#x6765;&#x5F97;&#x8FC7;&#x731B;&#x800C;&#x51FA;&#x6C34;&#x4E0D;&#x591F;&#x5FEB;&#x65F6;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x6C34;&#x76F4;&#x63A5;&#x6EA2;&#x51FA;,&#x5373;&#x62D2;&#x7EDD;&#x670D;&#x52A1;.</p>
+<p>&#x6F0F;&#x6597;&#x53CB;&#x8C0A;&#x8FDB;&#x6C34;&#x53E3;&#x548C;&#x4E00;&#x4E2A;&#x51FA;&#x6C34;&#x53E3;,&#x51FA;&#x6C34;&#x53E3;&#x4EE5;&#x4E00;&#x5B9A;&#x901F;&#x7387;&#x51FA;&#x6C34;,&#x5E76;&#x4E14;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x51FA;&#x6C34;&#x901F;&#x7387;:</p>
+<p>&#x5728;&#x6F0F;&#x6597;&#x4E2D;&#x6CA1;&#x6709;&#x6C34;&#x7684;&#x65F6;&#x5019;,</p>
+<ul>
+<li>&#x5982;&#x679C;&#x8FDB;&#x6C34;&#x901F;&#x7387;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#x6700;&#x5927;&#x51FA;&#x6C34;&#x901F;&#x7387;,&#x90A3;&#x4E48;,&#x51FA;&#x6C34;&#x901F;&#x7387;&#x7B49;&#x4E8E;&#x8FDB;&#x6C34;&#x901F;&#x7387;,&#x6B64;&#x65F6;,&#x4E0D;&#x4F1A;&#x79EF;&#x6C34;</li>
+<li>&#x5982;&#x679C;&#x8FDB;&#x6C34;&#x901F;&#x7387;&#x5927;&#x4E8E;&#x6700;&#x5927;&#x51FA;&#x6C34;&#x901F;&#x7387;,&#x90A3;&#x4E48;,&#x6F0F;&#x6597;&#x4EE5;&#x6700;&#x5927;&#x901F;&#x7387;&#x51FA;&#x6C34;,&#x6B64;&#x65F6;,&#x591A;&#x4F59;&#x7684;&#x6C34;&#x4F1A;&#x79EF;&#x5728;&#x6F0F;&#x6597;&#x4E2D;</li>
+</ul>
+<p>&#x5728;&#x6F0F;&#x6597;&#x4E2D;&#x6709;&#x6C34;&#x7684;&#x65F6;&#x5019;</p>
+<ul>
+<li><p>&#x51FA;&#x6C34;&#x53E3;&#x4EE5;&#x6700;&#x5927;&#x901F;&#x7387;&#x51FA;&#x6C34;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x6F0F;&#x6597;&#x672A;&#x6EE1;,&#x4E14;&#x6709;&#x8FDB;&#x6C34;&#x7684;&#x5316;,&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x6C34;&#x4F1A;&#x79EF;&#x5728;&#x6F0F;&#x6597;&#x4E2D;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x6F0F;&#x6597;&#x5DF2;&#x6EE1;,&#x4E14;&#x6709;&#x8FDB;&#x6C34;&#x7684;&#x8BDD;,&#x90A3;&#x4E48;&#x8FD9;&#x4E9B;&#x6C34;&#x4F1A;&#x6EA2;&#x51FA;&#x5230;&#x6F0F;&#x6597;&#x4E4B;&#x5916;</p>
+<p><img src="home/parallels/Desktop/EffectivePython/&#x7B14;&#x8BB0;/image/&#x6F0F;&#x6876;&#x7B97;&#x6CD5;.png" alt="&#x6F0F;&#x6876;&#x7B97;&#x6CD5;">&#x6F0F;&#x6876;&#x7B97;&#x6CD5;:</p>
+</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;
+&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;,&#x628A;&#x5F53;&#x524D;&#x5269;&#x4F59;&#x7684;&#x914D;&#x989D;&#x4EE5;&#x53CA;&#x91CD;&#x7F6E;&#x914D;&#x989D;&#x7684;&#x5468;&#x671F;,&#x653E;&#x5728;&#x4E86;Bucket&#x7C7B;&#x91CC;&#x9762;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bucket</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, period)</span>:</span>
+        self.period_delta = timedelata(seconds=period)
+        self.reset_time = datetime.now()
+        self.quota = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Bucket(quota=%d)&apos;</span> % self.quota
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fill</span><span class="hljs-params">(bucket, amount)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;&#x65E0;&#x8BBA;&#x5411;&#x6876;&#x4E2D;&#x52A0;&#x591A;&#x5C11;&#x6C34;,&#x90FD;&#x5FC5;&#x987B;&#x5728;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x4E2A;&#x5468;&#x671F;&#x65F6;&#x5C06;&#x5176;&#x6E05;&#x7A7A;&apos;&apos;&apos;</span>
+    now = datetime.now()
+    <span class="hljs-keyword">if</span> now-bucket.reset_time&gt;bucket.period_delta:
+        bucket.quota = <span class="hljs-number">0</span>
+        bucket.reset_time = now
+
+    bucket.quota += amount
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deduct</span><span class="hljs-params">(bucket, amount)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;&#x6BCF;&#x6B21;&#x5728;&#x6267;&#x884C;&#x6D88;&#x8017;&#x914D;&#x989D;&#x7684;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;,&#x90FD;&#x5FC5;&#x987B;&#x5148;&#x786E;&#x8BA4;&#x6876;&#x91CC;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x914D;&#x989D;&#x53EF;&#x4F9B;&#x4F7F;&#x7528;&apos;&apos;&apos;</span>
+    now = datetime.now()
+    <span class="hljs-keyword">if</span> now-bucket.reset_time&gt;bucket.period_delta:
+        <span class="hljs-comment">#&#x6C34;&#x8FC7;&#x671F;&#x4E86;,&#x9700;&#x8981;&#x5012;&#x6389;,&#x91CD;&#x65B0;&#x6CE8;&#x5165;&#x6C34;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">if</span> bucket.quota-amount&lt;<span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    bucket.quota -= amount
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+<span class="hljs-comment"># &#x521B;&#x5EFA;&#x5BF9;&#x8C61;,&#x5148;&#x5F80;&#x6876;&#x91CC;&#x6DFB;&#x6C34;</span>
+bucket = Bucket(<span class="hljs-number">60</span>)
+fill(bucket, <span class="hljs-number">100</span>)
+print(bucket)
+<span class="hljs-comment"># &#x6D88;&#x8017;&#x81EA;&#x5DF1;&#x6240;&#x9700;&#x7684;&#x914D;&#x989D;</span>
+<span class="hljs-keyword">if</span> deduct(bucket, <span class="hljs-number">99</span>):
+    print(<span class="hljs-string">&quot;Had 99 quota&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">&apos;Not enough for 99 quota&apos;</span>)
+print(bucket)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4E0A;&#x9762;&#x8FD9;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x7F3A;&#x70B9;:&#x4EE5;&#x540E;&#x65E0;&#x6CD5;&#x5F97;&#x77E5;&#x6F0F;&#x6876;&#x7684;&#x521D;&#x59CB;&#x914D;&#x989D;.&#x914D;&#x989D;&#x4F1A;&#x5728;&#x6BCF;&#x4E2A;&#x5468;&#x671F;&#x5185;&#x6301;&#x7EED;&#x6D41;&#x5931;,&#x5982;&#x679C;&#x964D;&#x5230;0,&#x90A3;&#x4E48;deduct&#x5C31;&#x603B;&#x662F;&#x4F1A;&#x8FD4;&#x56DE;False.&#x6B64;&#x65F6;,&#x4F9D;&#x8D56;deduct&#x7684;&#x90A3;&#x4E9B;&#x64CD;&#x4F5C;,&#x5C31;&#x4F1A;&#x53D7;&#x5230;&#x963B;&#x585E;,&#x4F46;&#x662F;,&#x65E0;&#x4ECE;&#x5224;&#x65AD;:&#x8FD9;&#x7A76;&#x7ADF;&#x662F;&#x7531;&#x4E8E;Bucket&#x91CC;&#x9762;&#x6240;&#x5269;&#x7684;&#x914D;&#x989D;&#x4E0D;&#x8DB3;,&#x8FD8;&#x662F;&#x7531;&#x4E8E;Bucket&#x521A;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#x6839;&#x672C;&#x5C31;&#x6CA1;&#x6709;&#x914D;&#x989D;.
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:&#x4F7F;&#x7528;max_quota&#x6765;&#x8BB0;&#x5F55;&#x672C;&#x5468;&#x671F;&#x7684;&#x521D;&#x59CB;&#x914D;&#x989D;,&#x5E76;&#x4E14;&#x7528;quoita_consumed&#x6765;&#x8BB0;&#x5F55;&#x672C;&#x5468;&#x671F;&#x5185;&#x6240;&#x6D88;&#x8017;&#x7684;&#x914D;&#x989D;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bucket</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, period)</span>:</span>
+        self.period_delta = timedelta(seconds=period)
+        self.reset_time = datetime.now()
+        self.max_quota = <span class="hljs-number">0</span>
+        self.quota_consumed = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> (<span class="hljs-string">&apos;Bucket(max_quota=%d, quota_consumed=%d)&apos;</span> % (self.max_quota, self.quota_consumed))
+
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">quota</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;&#x5B9E;&#x65F6;&#x8BA1;&#x7B97;&#x5F53;&#x524D;&#x6240;&#x5269;&#x7684;&#x914D;&#x989D;&apos;&apos;&apos;</span>
+        <span class="hljs-keyword">return</span> self.max_quota - self.quota_consumed
+
+<span class="hljs-meta">    @property.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">quota</span><span class="hljs-params">(self, amount)</span>:</span>
+        delta = self.max_quota - amount
+        <span class="hljs-keyword">if</span> amount==<span class="hljs-number">0</span>:
+            <span class="hljs-comment">#Quota being reset for a new period</span>
+            self.quota_consumed = <span class="hljs-number">0</span>
+            self.max_quota = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">elif</span> delta&lt;<span class="hljs-number">0</span>:
+            <span class="hljs-comment">#Quota being filled for the new period</span>
+            <span class="hljs-keyword">assert</span> self.quota_consumed==<span class="hljs-number">0</span>
+            self.max_quota = amount
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-comment"># Quota being consumed during the peroid</span>
+            <span class="hljs-keyword">assert</span> self.max_quota &gt;= self.quota_consumed
+            self.quota_consumed += delta
+
+bucket = Bucket(<span class="hljs-number">60</span>)
+print(<span class="hljs-string">&apos;Initial&apos;</span>, bucket)
+fill(<span class="hljs-string">&apos;Filled&apos;</span>, bucket)
+print(<span class="hljs-string">&apos;Filled&apos;</span>, bucket)
+
+<span class="hljs-keyword">if</span> deduct(bucket, <span class="hljs-number">99</span>):
+    print(<span class="hljs-string">&apos;Had 99 quota&apos;</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">&apos;Not enough for 99 quota&apos;</span>)
+
+print(<span class="hljs-string">&apos;Now&apos;</span>, bucket)
+
+<span class="hljs-keyword">if</span> deduct(bucket, <span class="hljs-number">3</span>):
+    print(<span class="hljs-string">&apos;Had 3 quota&apos;</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">&apos;Not enough for 3 quota&apos;</span>)
+print(<span class="hljs-string">&apos;Still&apos;</span>, bucket)
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>@property&#x53EF;&#x4EE5;&#x4E3A;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x529F;&#x80FD;</li>
+<li>&#x53EF;&#x4EE5;&#x7528;@property&#x6765;&#x9010;&#x6B65;&#x5B8C;&#x5584;&#x6570;&#x636E;&#x6A21;&#x578B;</li>
+<li>&#x5982;&#x679C;@property&#x7528;&#x5F97;&#x8FC7;&#x4E8E;&#x9891;&#x7E41;,&#x90A3;&#x5C31;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5F7B;&#x5E95;&#x91CD;&#x6784;&#x8BE5;&#x7C7B;&#x5E76;&#x4FEE;&#x6539;&#x76F8;&#x5173;&#x7684;&#x8C03;&#x7528;&#x4EE3;&#x7801;</li>
+</ul>
+<h2 id="&#x7B2C;31&#x6761;&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#x6765;&#x6539;&#x5199;&#x9700;&#x8981;&#x590D;&#x7528;&#x7684;property&#x65B9;&#x6CD5;">&#x7B2C;31&#x6761;:&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#x6765;&#x6539;&#x5199;&#x9700;&#x8981;&#x590D;&#x7528;&#x7684;@property&#x65B9;&#x6CD5;</h2>
+<blockquote>
+<p>@property&#x4FEE;&#x9970;&#x5668;&#x6709;&#x4E00;&#x4E2A;&#x660E;&#x663E;&#x7684;&#x7F3A;&#x70B9;:&#x5C31;&#x662F;&#x4E0D;&#x4FBF;&#x4E8E;&#x590D;&#x7528;;&#x53D7;&#x5B83;&#x4FEE;&#x9970;&#x7684;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;,&#x65E0;&#x6CD5;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#x6240;&#x590D;&#x7528;,&#x800C;&#x4E14;,&#x4E0E;&#x4E4B;&#x65E0;&#x5173;&#x7684;&#x7C7B;&#x4E5F;&#x65E0;&#x6CD5;&#x590D;&#x7528;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Exam</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._writing_grade=<span class="hljs-number">0</span>
+        self._math_grade = <span class="hljs-number">0</span>
+
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_check_grade</span><span class="hljs-params">(value)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(<span class="hljs-number">0</span>&lt;=value&lt;=<span class="hljs-number">100</span>):
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;Grade must be between 0 and 100&apos;</span>)
+
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">writing_grade</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._writing_grade
+
+<span class="hljs-meta">    @writing_grade.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">writing_grade</span><span class="hljs-params">(self,value)</span>:</span>
+        self._check_grade(value)
+        self._writing_grade = value
+
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">math_grade</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._math_grade
+
+<span class="hljs-meta">    @math_grade.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">math_grade</span><span class="hljs-params">(self, value)</span>:</span>
+        self._check_grade(value)
+        self._math_grade = value
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x4EE5;&#x4E0A;&#x7684;&#x5199;&#x6CD5;&#x4E0D;&#x591F;&#x901A;&#x7528;;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x5B9E;&#x73B0;&#x4E0A;&#x9762;&#x7684;&#x529F;&#x80FD;,&#x6211;&#x4EEC;&#x4F7F;&#x7528;python&#x7684;&#x63CF;&#x8FF0;&#x7B26;(descriptor)&#x6765;&#x505A;.
+python&#x4F1A;&#x5BF9;&#x8BBF;&#x95EE;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x4E00;&#x5B9A;&#x7684;&#x8F6C;&#x8BD1;,&#x800C;&#x8FD9;&#x79CD;&#x8F6C;&#x8BD1;&#x65B9;&#x5F0F;,&#x5219;&#x662F;&#x7531;&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x6765;&#x786E;&#x5B9A;&#x7684;.&#x63CF;&#x8FF0;&#x7B26;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;__get__&#x548C;__set__&#x65B9;&#x6CD5;,&#x4F7F;&#x5F97;&#x5F00;&#x53D1;&#x8005;&#x65E0;&#x9700;&#x518D;&#x7F16;&#x5199;&#x4F8B;&#x884C;&#x4EE3;&#x7801;,&#x5373;&#x53EF;&#x590D;&#x7528;&#x5206;&#x6570;&#x9A8C;&#x8BC1;&#x529F;&#x80FD;.
+
+&#x7531;&#x4E8E;&#x63CF;&#x8FF0;&#x7B26;&#x80FD;&#x591F;&#x628A;&#x540C;&#x4E00;&#x5957;&#x903B;&#x8F91;&#x8FD0;&#x7528;&#x5728;&#x7C7B;&#x4E2D;&#x7684;&#x4E0D;&#x540C;&#x5C5E;&#x6027;&#x4E0A;&#x9762;,&#x6240;&#x4EE5;&#x4ECE;&#x8FD9;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x770B;,&#x63CF;&#x8FF0;&#x7B26;&#x4E5F;&#x8981;&#x6BD4;mix-in&#x597D;&#x4E00;&#x4E9B;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Grade</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._value = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, instance_type)</span>:</span>
+        <span class="hljs-keyword">return</span> self._value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(<span class="hljs-number">0</span> &lt;= value &lt;= <span class="hljs-number">100</span>):
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;Grade must be between 0 and 100&apos;</span>)
+        self._value = value
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Exam</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-comment"># Class attributes</span>
+    math_grade = Grade()
+    writing_grade = Grade()
+    science_grade = Grade()
+
+exam = Exam()
+exam.writing_grade = <span class="hljs-number">40</span>  <span class="hljs-comment"># python&#x4F1A;&#x5C06;&#x4EE3;&#x7801;&#x8F6C;&#x8BD1;&#x4E3A;Exam.__dict__[&apos;writing_grade&apos;].__set__(exam,40)</span>
+exam.math_grade = <span class="hljs-number">90</span>
+print(<span class="hljs-string">&apos;Writing&apos;</span>, exam.writing_grade)
+print(<span class="hljs-string">&apos;Math&apos;</span>, exam.math_grade)
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4E0A;&#x9762;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6848;&#x7684;&#x539F;&#x7406;:&#x5982;&#x679C;Exam&#x5B9E;&#x4F8B;&#x6CA1;&#x6709;&#x540D;&#x4E3A;writing_grade&#x7684;&#x5C5E;&#x6027;,&#x90A3;&#x4E48;python&#x5C31;&#x4F1A;&#x8F6C;&#x5411;Exam&#x7C7B;,&#x5E76;&#x5728;&#x8BE5;&#x7C7B;&#x4E2D;&#x67E5;&#x627E;&#x540C;&#x540D;&#x7684;&#x7C7B;&#x5C5E;&#x6027;.&#x8FD9;&#x4E2A;&#x7C7B;&#x5C5E;&#x6027;,&#x5982;&#x679C;&#x662F;&#x5B9E;&#x73B0;&#x4E86;__get__&#x548C;__set__&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;,&#x90A3;&#x4E48;python&#x5C31;&#x8BA4;&#x4E3A;&#x6B64;&#x5BF9;&#x8C61;&#x9075;&#x4ECE;&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;.
+
+&#x7F3A;&#x70B9;:&#x5982;&#x679C;&#x5728;&#x591A;&#x4E2A;Exam&#x5B9E;&#x4F8B;&#x4E0A;&#x9762;&#x64CD;&#x4F5C;&#x540C;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;,&#x4F1A;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#x7684;&#x7ED3;&#x679C;;&#x5982;&#x4E0B;&#x6240;&#x793A;
+&apos;&apos;&apos;</span>
+exam_second = Exam()
+exam.writing_grade = <span class="hljs-number">88</span>
+print(<span class="hljs-string">&apos;first exam&apos;</span>, exam.writing_grade) <span class="hljs-comment">#first exam 88</span>
+print(<span class="hljs-string">&apos;second exam&apos;</span>, exam_second.writing_grade) <span class="hljs-comment"># second exam 88</span>
+print(<span class="hljs-string">&apos;first exam math&apos;</span>, exam.math_grade)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EA7;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;:&#x5BF9;&#x4E8E;writing_grade&#x8FD9;&#x4E2A;&#x7C7B;&#x5C5E;&#x6027;&#x6765;&#x8BF4;,&#x6240;&#x6709;&#x7684;Exam&#x5B9E;&#x4F8B;&#x90FD;&#x8981;&#x5171;&#x4EAB;&#x4E00;&#x4EFD;Grade&#x5B9E;&#x4F8B;,&#x53EA;&#x4F1A;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x6784;&#x5EFA;&#x4E00;&#x6B21;.&#x4E5F;&#x5C31;&#x662F;&#x8BF4;:&#x5F53;&#x7A0B;&#x5E8F;&#x5B9A;&#x4E49;Exam&#x7C7B;&#x7684;&#x65F6;&#x5019;,&#x5B83;&#x4F1A;&#x628A;Grade&#x5B9E;&#x4F8B;&#x6784;&#x5EFA;&#x597D;,&#x4EE5;&#x540E;&#x521B;&#x5EFA;Exam&#x5B9E;&#x4F8B;&#x65F6;,&#x5C31;&#x4E0D;&#x5728;&#x6784;&#x5EFA;Grade&#x4E86;.
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:(&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x628A;&#x7C7B;&#x5C5E;&#x6027;&#x53D8;&#x6210;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x5462;?&#x6211;&#x53D1;&#x73B0;&#x628A;&#x5B83;&#x53D8;&#x6210;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E5F;&#x80FD;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x554A;)&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x628A;&#x6BCF;&#x4E2A;Exam&#x5B9E;&#x4F8B;&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x8BB0;&#x5F55;&#x5230;Grade&#x4E2D;.&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;,&#x7528;&#x5B57;&#x5178;&#x6765;&#x4FDD;&#x5B58;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Grade</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._values = {}
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, instance_type)</span>:</span>
+        <span class="hljs-keyword">if</span> instance <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>: <span class="hljs-keyword">return</span> self
+        <span class="hljs-keyword">return</span> self._values.get(instance, <span class="hljs-number">0</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (<span class="hljs-number">0</span>&lt;=value&lt;=<span class="hljs-number">100</span>):
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;Grade must be between 0 and 100&apos;</span>)
+
+        self._values[instance] = value
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EE5;&#x4E0A;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4ECD;&#x7136;&#x5B58;&#x5728;&#x9690;&#x60A3;:&#x5185;&#x5B58;&#x6CC4;&#x9732;;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x58F0;&#x660E;&#x5468;&#x671F;&#x5185;,&#x5BF9;&#x4E8E;&#x4F20;&#x7ED9;__set__&#x65B9;&#x6CD5;&#x7684;&#x6BCF;&#x4E2A;Exam&#x5B9E;&#x4F8B;&#x6765;&#x8BF4;,_values&#x5B57;&#x5178;&#x59CB;&#x7EC8;&#x4FDD;&#x5B58;&#x7740;&#x8BE5;&#x5B9E;&#x4F8B;&#x7684;&#x4E00;&#x4EFD;&#x5F15;&#x7528;,&#x4ECE;&#x800C;&#x4F7F;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x65E0;&#x6CD5;&#x5C06;&#x5176;&#x56DE;&#x6536;.
+
+&#x4F7F;&#x7528;python&#x5185;&#x7F6E;&#x7684;weakref&#x6A21;&#x5757;,&#x5373;&#x53EF;&#x89E3;&#x51B3;&#x6B64;&#x95EE;&#x9898;.&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x540D;&#x4E3A;weakkey-dictionary&#x7684;&#x7279;&#x6B8A;&#x5B57;&#x5178;,&#x7528;&#x4E8E;&#x53D6;&#x4EE3;_values&#x539F;&#x6765;&#x7684;&#x666E;&#x901A;&#x5B57;&#x5178;.&#x5B83;&#x7684;&#x7279;&#x6B8A;&#x4E4B;&#x5904;&#x5728;&#x4E8E;:&#x5982;&#x679C;&#x8FD0;&#x884C;&#x671F;&#x7CFB;&#x7EDF;&#x53D1;&#x73B0;&#x8FD9;&#x79CD;&#x5B57;&#x5178;&#x6240;&#x6301;&#x6709;&#x7684;&#x5F15;&#x7528;,&#x662F;&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#x91CC;&#x9762;&#x6307;&#x5411;Exam&#x5B9E;&#x4F8B;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4EFD;&#x5F15;&#x7528;,&#x90A3;&#x4E48;,&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x8BE5;&#x5B9E;&#x4F8B;&#x4ECE;&#x5B57;&#x5178;&#x7684;&#x952E;&#x4E2D;&#x79FB;&#x9664;.python&#x4F1A;&#x505A;&#x597D;&#x76F8;&#x5173;&#x7684;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;,&#x4EE5;&#x4FDD;&#x8BC1;&#x5F53;&#x7A0B;&#x5E8F;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;Exam&#x5B9E;&#x4F8B;&#x65F6;,_value&#x5B57;&#x5178;&#x4F1A;&#x662F;&#x7A7A;&#x7684;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Grade</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._values = WeakKeyDictionary()
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x5982;&#x679C;&#x60F3;&#x590D;&#x7528;@property&#x65B9;&#x6CD5;&#x53CA;&#x5176;&#x9A8C;&#x8BC1;&#x673A;&#x5236;,&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;.</li>
+<li>WeakKeyDictionary&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;&#x4E0D;&#x4F1A;&#x6CC4;&#x9732;&#x5185;&#x5B58;</li>
+<li>&#x901A;&#x8FC7;&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x6765;&#x5B9E;&#x73B0;&#x5C5E;&#x6027;&#x7684;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x64CD;&#x4F5C;&#x65F6;,&#x4E0D;&#x8981;&#x7EA0;&#x7ED3;&#x4E8E;<em>_getattribute\</em>_&#x7684;&#x65B9;&#x6CD5;&#x5177;&#x4F53;&#x8FD0;&#x4F5C;&#x7EC6;&#x8282;</li>
+</ul>
+<h2 id="&#x7B2C;32&#x6761;-&#x7528;getattrgetattrbute&#x548C;setattr&#x5B9E;&#x73B0;&#x6309;&#x9700;&#x751F;&#x6210;&#x7684;&#x5C5E;&#x6027;">&#x7B2C;32&#x6761;: &#x7528;<strong>getattr__,</strong>getattrbute__&#x548C;<em>_setattr\</em>_&#x5B9E;&#x73B0;&#x6309;&#x9700;&#x751F;&#x6210;&#x7684;&#x5C5E;&#x6027;</h2>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;python&#x7684;<em>_getattr\</em>_&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;@property&#x548C;&#x63CF;&#x8FF0;&#x7B26;&#x90FD;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x52A8;&#x6001;&#x884C;&#x4E3A;.&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;__getattr__,&#x540C;&#x65F6;&#x7CFB;&#x7EDF;&#x5728;&#x8BE5;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5B9E;&#x4F8B;&#x5B57;&#x5178;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x5F85;&#x67E5;&#x8BE2;&#x7684;&#x5C5E;&#x6027;,&#x90A3;&#x4E48;,&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyDB</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.exists = <span class="hljs-number">5</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattr__</span><span class="hljs-params">(self, name)</span>:</span>
+        value = <span class="hljs-string">&apos;Value for %s&apos;</span> % name
+        setattr(self, name, value)
+        <span class="hljs-keyword">return</span> value
+
+data = LazyDB()
+print(<span class="hljs-string">&apos;Before:&apos;</span>, data__dict__)
+print(<span class="hljs-string">&apos;foo:  &apos;</span>, data.foo)
+print(<span class="hljs-string">&apos;After: &apos;</span>, data.__dict__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x7ED9;LazyDB&#x6DFB;&#x52A0;&#x8BB0;&#x5F55;&#x529F;&#x80FD;,&#x628A;&#x7A0B;&#x5E8F;&#x5BF9;__getattr__&#x7684;&#x8C03;&#x7528;&#x884C;&#x4E3A;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoggingLazyDB</span><span class="hljs-params">(LazyDB)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattr__</span><span class="hljs-params">(self, name)</span>:</span>
+        print(<span class="hljs-string">&apos;Called __getattr__(%s)&apos;</span> % name)
+        <span class="hljs-keyword">return</span> super().__getattr__(name)
+
+data = LoggingLazyDB()
+print(<span class="hljs-string">&apos;exists:&apos;</span>, data.exists)
+print(<span class="hljs-string">&apos;foo:&apos;</span>, data.foo)
+print(<span class="hljs-string">&apos;foo:&apos;</span>, data.foo)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x975E;&#x5E38;&#x9002;&#x5408;&#x5B9E;&#x73B0;&#x65E0;&#x7ED3;&#x6784;&#x6570;&#x636E;(schemaless data,&#x65E0;&#x6A21;&#x5F0F;&#x6570;&#x636E;)&#x7684;&#x6309;&#x9700;&#x8BBF;&#x95EE;(&#x4E5F;&#x79F0;&#x60F0;&#x6027;&#x8BBF;&#x95EE;).&#x521D;&#x59CB;&#x6267;&#x884C;__getattr__&#x7684;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;,&#x628A;&#x76F8;&#x5173;&#x7684;&#x5C5E;&#x6027;&#x52A0;&#x8F7D;&#x8FDB;&#x6765;,&#x4EE5;&#x540E;&#x5728;&#x8BBF;&#x95EE;&#x8BE5;&#x5C5E;&#x6027;&#x65F6;,&#x53EA;&#x9700;&#x4ECE;&#x73B0;&#x6709;&#x7684;&#x7ED3;&#x679C;&#x4E4B;&#x4E2D;&#x83B7;&#x53D6;&#x5373;&#x53EF;.
+
+&#x65B0;&#x9700;&#x6C42;:&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x7528;&#x6237;&#x4E0B;&#x6B21;&#x8BBF;&#x95EE;&#x67D0;&#x5C5E;&#x6027;&#x65F6;,&#x6211;&#x4EEC;&#x8981;&#x77E5;&#x9053;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x884C;&#x662F;&#x5426;&#x4F9D;&#x7136;&#x6709;&#x6548;.&#x8FD9;&#x65F6;&#x5019;__getattr__&#x65B9;&#x6CD5;&#x5C31;&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x4E86;.&#x56E0;&#x4E3A;&#x5F53;&#x88AB;&#x8BBF;&#x95EE;&#x7684;&#x5C5E;&#x6027;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x65F6;,__getattr__&#x65B9;&#x6CD5;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;.&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;python&#x4E2D;&#x7684;&#x53E6;&#x5916;&#x7684;&#x4E00;&#x4E2A;&#x6302;&#x94A9;,&#x4E5F;&#x5C31;&#x662F;__getattribute__.&#x7A0B;&#x5E8F;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x65F6;,python&#x7CFB;&#x7EDF;&#x90FD;&#x662F;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;.&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x7A0B;&#x5E8F;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x65F6;,&#x68C0;&#x67E5;&#x5168;&#x5C40;&#x4E8B;&#x52A1;&#x72B6;&#x6001;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValidatingDB</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.exists = <span class="hljs-number">5</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattribute__</span><span class="hljs-params">(self, name)</span>:</span>
+        print(<span class="hljs-string">&apos;Called __getattribute__(%s)&apos;</span> % name)
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">return</span> super().__getattribute__(name)
+        <span class="hljs-keyword">except</span> AttributeError:
+            value = <span class="hljs-string">&apos;Value for %s&apos;</span> % name
+            setattr(self, name, value)
+            <span class="hljs-keyword">return</span> value
+
+data = ValidatingDB()
+print(<span class="hljs-string">&apos;exists:&apos;</span>, data.exists)
+print(<span class="hljs-string">&apos;foo:  &apos;</span>, data.foo)
+print(<span class="hljs-string">&apos;foo:  &apos;</span>, data.foo)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4F7F;&#x7528;python&#x4EE3;&#x7801;&#x5185;&#x7F6E;&#x7684;hasattr&#x51FD;&#x6570;&#x6765;&#x5224;&#x65AD;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x62E5;&#x6709;&#x4E86;&#x76F8;&#x5173;&#x7684;&#x5C5E;&#x6027;,&#x5E76;&#x7528;&#x5185;&#x7F6E;&#x7684;getattr&#x51FD;&#x6570;&#x6765;&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x503C;.
+
+&#x65B0;&#x9700;&#x6C42;:&#x901A;&#x8FC7;__setattr__&#x65B9;&#x6CD5;&#x6765;&#x62E6;&#x622A;&#x5BF9;&#x5C5E;&#x6027;&#x7684;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SavingDB</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setattr__</span><span class="hljs-params">(self, name, value)</span>:</span>
+        super().__setattr__(name, value)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoggingSavingDB</span><span class="hljs-params">(SavingDB)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setattr__</span><span class="hljs-params">(self, name, value)</span>:</span>
+        print(<span class="hljs-string">&apos;Called __setattr__(%s, %r)&apos;</span> % (name, value))
+        super().__setattr__(name, value)
+
+data = LoggingSavingDB()
+print(<span class="hljs-string">&apos;Before: &apos;</span>, data.__dict__)
+data.foo = <span class="hljs-number">5</span>
+print(<span class="hljs-string">&apos;After: &apos;</span>, data.__dict__)
+data.foo = <span class="hljs-number">7</span>
+print(<span class="hljs-string">&apos;Finally: &apos;</span>, data.__dcit__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x6CE8;&#x610F;:__getattribute__&#x548C;__setattr__&#x5728;&#x6BCF;&#x6B21;&#x64CD;&#x4F5C;&#x5C5E;&#x6027;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x88AB;&#x8C03;&#x7528;,&#x6240;&#x4EE5;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x8C03;&#x7528;&#x6808;&#x6EA2;&#x51FA;;&#x6BD4;&#x5982;:
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BrokenDictionaryDB</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data)</span>:</span>
+        self._data = data
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattribute__</span><span class="hljs-params">(self, name)</span>:</span>
+        print(<span class="hljs-string">&apos;Called __getattribute__(%s)&apos;</span> % name)
+        <span class="hljs-keyword">return</span> self._data[name]
+
+data = BrokenDictionaryDB({<span class="hljs-string">&apos;foo&apos;</span>:<span class="hljs-number">3</span>})
+data.foo
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x4F1A;&#x5F15;&#x53D1;&#x8C03;&#x7528;&#x6808;&#x6EA2;&#x51FA;,&#x56E0;&#x4E3A;&#x5728;__getattribute__&#x65B9;&#x6CD5;&#x4E2D;&#x8BBF;&#x95EE;self._data&#x662F;,&#x53C8;&#x4F1A;&#x8C03;&#x7528;__getattribute__&#x65B9;&#x6CD5;.
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:&#x91C7;&#x7528;super().__getattribute__&#x65B9;&#x6CD5;,&#x4ECE;&#x5E02;&#x91CC;&#x7684;&#x5C5E;&#x6027;&#x5B57;&#x5178;&#x91CC;&#x9762;&#x76F4;&#x63A5;&#x83B7;&#x53D6;_data&#x5C5E;&#x6027;&#x503C;,&#x4EE5;&#x907F;&#x514D;&#x65E0;&#x9650;&#x9012;&#x5F52;;&#x4E0E;&#x4E4B;&#x7C7B;&#x4F3C;,&#x5982;&#x4E0A;&#x5982;&#x4F7F;&#x7528;__setattr__&#x65B9;&#x6CD5;&#x4E00;&#x6837;,&#x8981;&#x5728;__setattr__&#x65B9;&#x6CD5;&#x4E2D;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x65F6;,&#x90A3;&#x4E48;&#x4E5F;&#x9700;&#x8981;&#x901A;&#x8FC7;super().__setattr__&#x6765;&#x5B8C;&#x6210;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DictionaryDB</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data)</span>:</span>
+        self._data = data
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getattribute__</span><span class="hljs-params">(self, name)</span>:</span>
+        data_dict = super().__getattribute__(<span class="hljs-string">&apos;_data&apos;</span>)
+        <span class="hljs-keyword">return</span> data_dict[name]
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x901A;&#x8FC7;<em>_getattr\</em>_&#x548C;__setattr__,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x60F0;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x52A0;&#x8F7D;&#x5E76;&#x4FDD;&#x5B58;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;.</li>
+<li>&#x8981;&#x7406;&#x89E3;__getattr__&#x4E0E;<em>_getattribute\</em>_&#x7684;&#x533A;&#x522B;:&#x524D;&#x8005;&#x53EA;&#x4F1A;&#x5728;&#x5F85;&#x8BBF;&#x95EE;&#x7684;&#x5C5E;&#x6027;&#x7F3A;&#x5931;&#x65F6;&#x89E6;&#x53D1;,&#x800C;&#x540E;&#x8005;&#x5219;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;&#x5C5E;&#x6027;&#x65F6;&#x89E6;&#x53D1;</li>
+<li>&#x5982;&#x679C;&#x8981;&#x5728;<em>_getattribute\</em>_&#x548C;__setattr__&#x65B9;&#x6CD5;&#x4E2D;&#x8BBF;&#x95EE;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;,&#x90A3;&#x4E48;&#x5E94;&#x8BE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;super()(&#x4E5F;&#x5C31;&#x662F;object&#x7C7B;&#x7684;&#x540C;&#x540D;&#x65B9;&#x6CD5;)&#x6765;&#x505A;,&#x4EE5;&#x907F;&#x514D;&#x65E0;&#x9650;&#x9012;&#x5F52;.</li>
+</ul>
+<h2 id="&#x7B2C;33&#x6761;-&#x7528;&#x5143;&#x7C7B;&#x6765;&#x9A8C;&#x8BC1;&#x5B50;&#x7C7B;">&#x7B2C;33&#x6761;: &#x7528;&#x5143;&#x7C7B;&#x6765;&#x9A8C;&#x8BC1;&#x5B50;&#x7C7B;</h2>
+<blockquote>
+<p>&#x5143;&#x7C7B;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x79CD;&#x7528;&#x9014;,&#x5C31;&#x662F;&#x9A8C;&#x8BC1;&#x67D0;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x5F97;&#x662F;&#x5426;&#x6B63;&#x786E;.&#x5143;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x53EF;&#x9760;&#x7684;&#x9A8C;&#x8BC1;&#x65B9;&#x5F0F;,&#x6BCF;&#x5F53;&#x5F00;&#x53D1;&#x8005;&#x5B9A;&#x4E49;&#x65B0;&#x7684;&#x7C7B;&#x65F6;,&#x5B83;&#x90FD;&#x4F1A;&#x8FD0;&#x884C;&#x9A8C;&#x8BC1;&#x4EE3;&#x7801;,&#x4EE5;&#x786E;&#x4FDD;&#x8FD9;&#x4E2A;&#x65B0;&#x7C7B;&#x7B26;&#x5408;&#x9884;&#x5B9A;&#x7684;&#x89C4;&#x8303;.</p>
+<p>&#x5728;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5143;&#x7C7B;&#x6765;&#x9A8C;&#x8BC1;&#x5B50;&#x7C7B;&#x4E4B;&#x524D;,&#x9996;&#x5148;&#x8981;&#x660E;&#x767D;&#x5982;&#x4F55;&#x4E3A;&#x4E00;&#x822C;&#x7684;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x5143;&#x7C7B;.&#x5B9A;&#x4E49;&#x5143;&#x7C7B;&#x7684;&#x65F6;&#x5019;,&#x8981;&#x4ECE;type&#x4E2D;&#x7EE7;&#x627F;,&#x800C;&#x5BF9;&#x4E8E;&#x4F7F;&#x7528;&#x6539;&#x5143;&#x7C7B;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x6765;&#x8BF4;,python&#x9ED8;&#x8BA4;&#x4F1A;&#x628A;&#x90A3;&#x4E9B;&#x7C7B;&#x7684;class&#x8BED;&#x53E5;&#x4F53;&#x4E2D;&#x6240;&#x542B;&#x7684;&#x76F8;&#x5173;&#x5185;&#x5BB9;,&#x53D1;&#x9001;&#x7ED9;&#x5143;&#x7C7B;&#x7684;<em>_new\</em>_&#x65B9;&#x6CD5;.&#x4E8E;&#x662F;,&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x7CFB;&#x7EDF;&#x6784;&#x5EFA;&#x51FA;&#x90A3;&#x79CD;&#x7C7B;&#x578B;&#x4E4B;&#x524D;,&#x5148;&#x4FEE;&#x6539;&#x90A3;&#x4E2A;&#x7C7B;&#x7684;&#x4FE1;&#x606F;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span><span class="hljs-params">(type)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;&#x83B7;&#x77E5;&#x90A3;&#x4E2A;&#x7C7B;&#x7684;&#x540D;&#x79F0;\&#x5176;&#x6240;&#x7EE7;&#x627F;&#x7684;&#x7236;&#x7C7B;,&#x4EE5;&#x53CA;&#x5B9A;&#x4E49;&#x5728;class&#x8BED;&#x53E5;&#x4F53;&#x4E2D;&#x7684;&#x5168;&#x90E8;&#x7C7B;&#x5C5E;&#x6027;&apos;&apos;&apos;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(meta, name, bases, class_dict)</span>:</span>
+        print((meta, name, bases, class_dict))
+        <span class="hljs-keyword">return</span> type.__new__(meta, name, bases, class_dict)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span><span class="hljs-params">(object, metaclass=Meta)</span>:</span>
+    stuff = <span class="hljs-number">123</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4E3A;&#x4E86;&#x5728;&#x5B9A;&#x4E49;&#x67D0;&#x4E2A;&#x7C7B;&#x7684;&#x65F6;&#x5019;,&#x786E;&#x4FDD;&#x8BE5;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x6709;&#x6548;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x76F8;&#x5173;&#x7684;&#x9A8C;&#x8BC1;&#x903B;&#x8F91;&#x6DFB;&#x52A0;Meta.__new__&#x65B9;&#x6CD5;&#x4E2D;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValidatePolygon</span><span class="hljs-params">(type)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(meta, name, bases, class_dict)</span>:</span>
+        <span class="hljs-comment"># Don&apos;t validate the abstract Polygon class</span>
+        <span class="hljs-keyword">if</span> bases != (object, ):
+            <span class="hljs-keyword">if</span> class_dict[<span class="hljs-string">&apos;sides&apos;</span>] &lt; <span class="hljs-number">3</span>:
+                <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;Polygons need 3+ sides&apos;</span>)
+        <span class="hljs-keyword">return</span> type.__new__(meta, name, bases, class_dict)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Polygon</span><span class="hljs-params">(object, metaclass=ValidatePolygon)</span>:</span>
+    sides = <span class="hljs-keyword">None</span> <span class="hljs-comment"># Specified by SbuClasses</span>
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">interior_angles</span><span class="hljs-params">(cls)</span>:</span>
+        <span class="hljs-keyword">return</span> (cls.sides<span class="hljs-number">-2</span>)*<span class="hljs-number">180</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Triangle</span><span class="hljs-params">(Polygon)</span>:</span>
+    sides = <span class="hljs-number">3</span>
+
+print(<span class="hljs-string">&apos;Before class&apos;</span>)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Line</span><span class="hljs-params">(Polygon)</span>:</span>
+    print(<span class="hljs-string">&apos;Before sides&apos;</span>)
+    sides = <span class="hljs-number">1</span>
+    print(<span class="hljs-string">&apos;After sides&apos;</span>)
+
+print(<span class="hljs-string">&apos;After class&apos;</span>)
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EE5;&#x4E0A;class&#x8BED;&#x53E5;&#x4F53;&#x521A;&#x4E00;&#x7ED3;&#x675F;,&#x5143;&#x7C7B;&#x4E2D;&#x7684;&#x9A8C;&#x8BC1;&#x4EE3;&#x7801;&#x7ACB;&#x5373;&#x62D2;&#x7EDD;&#x8FD9;&#x4E2A;class,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x5982;&#x679C;&#x5F00;&#x53D1;&#x8005;&#x5B9A;&#x4E49;&#x8FD9;&#x6837;&#x4E00;&#x79CD;&#x5B50;&#x7C7B;,&#x90A3;&#x4E48;&#x7A0B;&#x5E8F;&#x6839;&#x672C;&#x5C31;&#x65E0;&#x6CD5;&#x8FD0;&#x884C;.
+&apos;&apos;&apos;</span>
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x901A;&#x8FC7;&#x5143;&#x7C7B;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x751F;&#x6210;&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#x4E4B;&#x524D;,&#x5148;&#x9A8C;&#x8BC1;&#x5B50;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x662F;&#x5426;&#x5408;&#x4E4E;&#x89C4;&#x8303;</li>
+<li>python2&#x548C;python3&#x6307;&#x5B9A;&#x5143;&#x7C7B;&#x7684;&#x8BED;&#x6CD5;&#x7565;&#x6709;&#x4E0D;&#x540C;</li>
+<li>python&#x7CFB;&#x7EDF;&#x628A;&#x5B50;&#x7C7B;&#x7684;&#x6574;&#x4E2A;class&#x8BED;&#x53E5;&#x4F53;&#x5904;&#x7406;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;,&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x5176;&#x5143;&#x7C7B;&#x7684;<em>_new\</em>_&#x65B9;&#x6CD5;</li>
+</ul>
+<h2 id="&#x7B2C;34&#x6761;-&#x7528;&#x5143;&#x7C7B;&#x6765;&#x6CE8;&#x518C;&#x5B50;&#x7C7B;">&#x7B2C;34&#x6761;: &#x7528;&#x5143;&#x7C7B;&#x6765;&#x6CE8;&#x518C;&#x5B50;&#x7C7B;</h2>
+<blockquote>
+<p>&#x5143;&#x7C7B;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7528;&#x9014;,&#x5C31;&#x662F;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x7C7B;&#x578B;.&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x53CD;&#x5411;&#x67E5;&#x627E;(reverse lookup)&#x7684;&#x573A;&#x5408;,&#x8FD9;&#x79CD;&#x6CE8;&#x518C;&#x64CD;&#x4F5C;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;,&#x5B83;&#x4F7F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x7B80;&#x5355;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#x4E0E;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#x4E4B;&#x95F4;,&#x5EFA;&#x7ACB;&#x6620;&#x5C04;&#x5173;&#x7CFB;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;
+&#x9700;&#x6C42;:&#x5C06;python&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x4E3A;JSON&#x683C;&#x5F0F;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x6570;&#x636E;,&#x90A3;&#x4E48;,&#x5C31;&#x9700;&#x8981;&#x7528;&#x4E00;&#x79CD;&#x624B;&#x6BB5;,&#x628A;&#x6307;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x6210;JSON&#x5B57;&#x7B26;&#x4E32;.
+
+&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x57FA;&#x7C7B;,&#x5B83;&#x53EF;&#x4EE5;&#x8BB0;&#x5F55;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x672C;&#x7C7B;&#x6784;&#x9020;&#x5668;&#x65F6;&#x6240;&#x7528;&#x7684;&#x53C2;&#x6570;,&#x5E76;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A;JSON&#x5B57;&#x5178;:
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Serializable</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, *args)</span>:</span>
+        self.args = args
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> json.dumps({<span class="hljs-string">&apos;args&apos;</span>:self.args})
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Point2D</span><span class="hljs-params">(Serializable)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        super().__init__(x, y)
+        self.x = x
+        self.y = y
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Point2D(%d, %d)&apos;</span> % (self.x, self.y)
+
+point = Point2D(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>)
+print(<span class="hljs-string">&apos;Object: &apos;</span>, point)
+print(<span class="hljs-string">&apos;Serialized: &apos;</span>, point.serialize())
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x6267;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;,&#x5E76;&#x6784;&#x5EFA;&#x51FA;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x6240;&#x8868;&#x793A;&#x7684;Point2D&#x5BF9;&#x8C61;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Deserializable</span><span class="hljs-params">(Serializable)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.value = <span class="hljs-number">10</span>
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deserialize</span><span class="hljs-params">(cls, json_data)</span>:</span>
+        params = json.loads(json_data)
+        <span class="hljs-keyword">return</span> cls(*params[<span class="hljs-string">&apos;args&apos;</span>])
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_value</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;Deserializable show value:&apos;</span>, value)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BetterPoint2D</span><span class="hljs-params">(Deserializable)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        super().__init__(x, y)
+        self.x = x
+        self.y = y
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">#&#x8FD9;&#x91CC;&#x7684;&#x7C7B;&#x540D;&#x79F0;&#x5E94;&#x8BE5;&#x5199;&#x6210;BetterPointD&#x800C;&#x4E0D;&#x662F;Point2D</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;BetterPoint2D(%d, %d)&apos;</span> % (self.x, self.y)
+
+point = BetterPoint2D(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>)
+print(<span class="hljs-string">&apos;Before:  &apos;</span>, point)
+data = point.serialize()
+print(<span class="hljs-string">&apos;Serialized:&apos;</span>, data)
+after = BetterPoint2D.deserialize(data)
+print(<span class="hljs-string">&apos;After:  &apos;</span>, after)
+<span class="hljs-string">&apos;&apos;&apos;
+&#x7F3A;&#x70B9;:&#x4EE5;&#x4E0A;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x9700;&#x8981;&#x63D0;&#x524D;&#x77E5;&#x9053;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x6570;&#x636E;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x7684;,&#x624D;&#x80FD;&#x5BF9;&#x5176;&#x505A;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;.
+
+&#x7406;&#x60F3;&#x5316;&#x65B9;&#x6848;:&#x6709;&#x5F88;&#x591A;&#x7C7B;&#x90FD;&#x53EF;&#x4EE5;&#x628A;&#x672C;&#x7C7B;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;json&#x683C;&#x5F0F;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x5B57;&#x7B26;&#x4E32;,&#x4F46;&#x662F;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x7684;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x51FD;&#x6570;,&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x7684;JSON&#x5B57;&#x7B26;&#x4E32;&#x8FD8;&#x539F;&#x6210;&#x76F8;&#x5E94;&#x7684;python&#x5BF9;&#x8C61;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BetterSerializable</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, *args)</span>:</span>
+        self.args = args
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">serialize</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> json.dumps({<span class="hljs-string">&apos;args&apos;</span>:self.args,<span class="hljs-string">&apos;class&apos;</span>:self.__class__.__name__})
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">#&#x8FD9;&#x91CC;&#x7684;&#x7C7B;&#x540D;&#x79F0;&#x5E94;&#x8BE5;&#x5199;&#x6210;BetterPointD&#x800C;&#x4E0D;&#x662F;Point2D</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;BetterPoint2D(%d, %d)&apos;</span> % (self.x, self.y)
+
+<span class="hljs-comment">#&#x7EF4;&#x62A4;&#x4E00;&#x4EFD;&#x5B57;&#x5178;,&#x91CC;&#x9762;&#x4FDD;&#x5B58;&#x4E86;&#x7C7B;&#x540D;&#x4E0E;&#x8BE5;&#x7C7B;&#x5BF9;&#x8C61;&#x6784;&#x9020;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;deserialize&#x51FD;&#x6570;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;,&#x9700;&#x8981;&#x628A;&#x6240;&#x6709;&#x9700;&#x8981;&#x6267;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;&#x7684;&#x7C7B;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x6CE8;&#x518C;</span>
+registry = {}
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">registry_class</span><span class="hljs-params">(target_class)</span>:</span>
+    registry[target_class.__name__] = target_class
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deserialize</span><span class="hljs-params">(data)</span>:</span>
+    params = json.loads(data)
+    name = params[<span class="hljs-string">&apos;class&apos;</span>]
+    target_class = registry[name]
+    <span class="hljs-keyword">return</span> target_class(*params[<span class="hljs-string">&apos;args&apos;</span>])
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EE5;&#x4E0A;&#x65B9;&#x6848;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7F3A;&#x70B9;:&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x80FD;&#x4F1A;&#x5FD8;&#x8BB0;&#x8C03;&#x7528;registry_class&#x6765;&#x6CE8;&#x518C;&#x7C7B;&#x5BF9;&#x8C61;&#x4E86;;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x5199;&#x5B8C;class&#x8BED;&#x53E5;&#x4F53;&#x4E4B;&#x540E;,&#x5FD8;&#x8BB0;&#x8C03;&#x7528;register_class&#x4E86;,&#x90A3;&#x4E48;&#x5373;&#x4F7F;&#x4ECE;BetterSerializable&#x4E2D;&#x7EE7;&#x627F;&#x4E86;&#x5B50;&#x7C7B;,&#x4E5F;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x5229;&#x7528;deserialize&#x51FD;&#x6570;&#x5BF9;&#x5176;&#x6267;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;.&#x6240;&#x4EE5;,&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x5F88;&#x5BB9;&#x6613;&#x51FA;&#x9519;.
+
+&#x65B0;&#x7684;&#x65B9;&#x6848;:&#x4F7F;&#x7528;&#x5143;&#x7C7B;&#x6765;&#x6CE8;&#x518C;&#x7C7B;&#x5BF9;&#x8C61;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span><span class="hljs-params">(type)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(meta, name, bases, class_dict)</span>:</span>
+        cls = type.__new__(meta, name, bases, class_dict) <span class="hljs-comment">#&#x5148;&#x521B;&#x952E;&#x51FA;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;</span>
+        register_class(cls)
+        <span class="hljs-keyword">return</span> cls
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RegisteredSerializable</span><span class="hljs-params">(BetterSerializable, metaclass=Meta)</span>:</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector3D</span><span class="hljs-params">(RegisteredSerializable)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y, z)</span>:</span>
+        super().__init__(x, y, z)
+        self.x, self.y, self.z = x,y,z
+
+v3 = Vector3D(<span class="hljs-number">10</span>, <span class="hljs-number">-7</span>, <span class="hljs-number">3</span>)
+print(<span class="hljs-string">&apos;Before:  &apos;</span>, v3)
+data = v3.serialize()
+print(<span class="hljs-string">&apos;Serialized:  &apos;</span>, data)
+print(<span class="hljs-string">&apos;After: &apos;</span>, deserialize(data))
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x5728;&#x6784;&#x5EFA;&#x6A21;&#x5757;&#x5316;&#x7684;python&#x7A0B;&#x5E8F;&#x65F6;,&#x7C7B;&#x7684;&#x6CE8;&#x518C;&#x662F;&#x4E00;&#x79CD;&#x5F88;&#x6709;&#x7528;&#x7684;&#x6A21;&#x5F0F;</li>
+<li>&#x5F00;&#x53D1;&#x8005;&#x6BCF;&#x6B21;&#x4ECE;&#x57FA;&#x7C7B;&#x4E2D;&#x7EE7;&#x627F;&#x5B50;&#x7C7B;&#x65F6;,&#x57FA;&#x7C7B;&#x7684;&#x5143;&#x7C7B;&#x90FD;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x6CE8;&#x518C;&#x4EE3;&#x7801;</li>
+<li>&#x901A;&#x8FC7;&#x5143;&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x6CE8;&#x518C;,&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x6240;&#x6709;&#x5B50;&#x7C7B;&#x90FD;&#x4E0D;&#x4F1A;&#x9057;&#x6F0F;,&#x4ECE;&#x800C;&#x907F;&#x514D;&#x540E;&#x7EED;&#x7684;&#x9519;&#x8BEF;</li>
+</ul>
+<h2 id="&#x7B2C;35&#x6761;-&#x7528;&#x5143;&#x7C7B;&#x6765;&#x6CE8;&#x89E3;&#x7C7B;&#x7684;&#x5C5E;&#x6027;">&#x7B2C;35&#x6761;: &#x7528;&#x5143;&#x7C7B;&#x6765;&#x6CE8;&#x89E3;&#x7C7B;&#x7684;&#x5C5E;&#x6027;</h2>
+<blockquote>
+<p>&#x5143;&#x7C7B;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x66F4;&#x6709;&#x7528;&#x5904;&#x7684;&#x529F;&#x80FD;,&#x90A3;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x67D0;&#x4E2A;&#x7C7B;&#x521A;&#x5B9A;&#x4E49;&#x597D;&#x4F46;&#x662F;&#x5C1A;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;,&#x63D0;&#x524D;&#x4FEE;&#x6539;&#x6216;&#x6CE8;&#x89E3;&#x8BE5;&#x7C7B;&#x7684;&#x5C5E;&#x6027;.&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x901A;&#x5E38;&#x4F1A;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;&#x642D;&#x914D;&#x8D77;&#x6765;,&#x4EE4;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x66F4;&#x52A0;&#x8BE6;&#x7EC6;&#x5730;&#x4E86;&#x89E3;&#x81EA;&#x5DF1;&#x5728;&#x5916;&#x56F4;&#x7C7B;&#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;.</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-string">&apos;&apos;&apos;
+&#x5B9A;&#x4E49;&#x65B0;&#x7684;&#x7C7B;,&#x7528;&#x6765;&#x8868;&#x793A;&#x5BA2;&#x6237;&#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684;&#x67D0;&#x4E00;&#x884C;.&#x540C;&#x65F6;,&#x6211;&#x4EEC;&#x8FD8;&#x5E0C;&#x671B;&#x5728;&#x8BE5;&#x7C7B;&#x7684;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x8868;&#x7684;&#x6BCF;&#x4E00;&#x5217;&#x4E4B;&#x95F4;,&#x5EFA;&#x7ACB;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;.&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;,&#x628A;&#x5C5E;&#x6027;&#x4E0E;&#x5217;&#x540D;&#x8054;&#x7CFB;&#x8D77;&#x6765;.
+
+&#x4EE5;&#x4E0B;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4E5F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x95EE;&#x9898;:&#x53C2;&#x7167;&#x7B2C;31&#x6761;&#x4F7F;&#x7528;weakref&#x5B57;&#x5178;&#x6765;&#x89E3;&#x51B3;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x95EE;&#x9898;.
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Field</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name)</span>:</span>
+        self.name = name
+        self.internal_name = <span class="hljs-string">&apos;_&apos;</span>+self.name
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, instance_type)</span>:</span>
+        <span class="hljs-keyword">if</span> instance <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>: <span class="hljs-keyword">return</span> self
+        <span class="hljs-keyword">return</span> getattr(instance, self.internal_name, <span class="hljs-string">&apos;&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        setattr(instance, self.internal_name, value)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span><span class="hljs-params">(object)</span>:</span>
+    first_name = Field(<span class="hljs-string">&apos;first_name&apos;</span>)
+    last_name = Field(<span class="hljs-string">&apos;last_name&apos;</span>)
+    prefix = Field(<span class="hljs-string">&apos;prefix&apos;</span>)
+    suffix = Field(<span class="hljs-string">&apos;suffix&apos;</span>)
+
+foo = Customer()
+print(<span class="hljs-string">&apos;Before:&apos;</span>, repr(foo.first_name), foo.__dict__)
+foo.first_name = <span class="hljs-string">&apos;Euclid&apos;</span>
+print(<span class="hljs-string">&apos;After: &apos;</span>, repr(foo.first_name), foo.__dict__)
+
+<span class="hljs-string">&apos;&apos;&apos;
+&#x4EE5;&#x4E0A;&#x5B9E;&#x73B0;&#x5B58;&#x5728;&#x4EE3;&#x7801;&#x91CD;&#x590D;&#x6027;:&#x56E0;&#x4E3A;&#x5728;Customer&#x7C7B;&#x4E2D;&#x5DF2;&#x7ECF;&#x5B9A;&#x4E49;&#x4E86;first_name&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;,&#x4E3A;&#x4EC0;&#x4E48;&#x8FD8;&#x8981;&#x628A;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x540D;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;Field&#x4E2D;;
+
+&#x89E3;&#x51B3;&#x65B9;&#x6848;:&#x4F7F;&#x7528;&#x5143;&#x7C7B;&#x6D88;&#x9664;&#x91CD;&#x590D;&#x4EE3;&#x7801;
+&apos;&apos;&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span><span class="hljs-params">(type)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(meta, name, bases, class_dict)</span>:</span>
+        <span class="hljs-string">&apos;&apos;&apos;class_dict&#x662F;&#x88AB;&#x521B;&#x5EFA;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&apos;&apos;&apos;</span>
+        <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> class_dict.items():
+            <span class="hljs-keyword">if</span> isinstance(value, Field):
+                value.name = key
+                value.internal_name = <span class="hljs-string">&apos;_&apos;</span>+key
+        cls = type.__new__(meta, name, bases,class_dict)
+        <span class="hljs-keyword">return</span> cls
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DatabaseRow</span><span class="hljs-params">(object, metaclass=Meta)</span>:</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Field</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># These will be assigned by the metaclass.</span>
+        self.name = <span class="hljs-keyword">None</span>
+        self.internal_name = <span class="hljs-keyword">None</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BetterCustomer</span><span class="hljs-params">(DatabaseRow)</span>:</span>
+    first_name = Field()
+    last_name = Field()
+    prefix = Field()
+    suffix = Field()
+
+foo = BetterCustomer()
+print(<span class="hljs-string">&apos;Before: &apos;</span>, repr(foo.first_name), foo.__dict__)
+foo.first_name = <span class="hljs-string">&apos;Euler&apos;</span>
+print(<span class="hljs-string">&apos;After: &apos;</span>, repr(foo.first_name), foo.__dict__)
+</code></pre>
+<h3 id="&#x8981;&#x70B9;">&#x8981;&#x70B9;</h3>
+<ul>
+<li>&#x501F;&#x52A9;&#x5143;&#x7C7B;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x67D0;&#x4E2A;&#x7C7B;&#x5B8C;&#x5168;&#x5B9A;&#x4E49;&#x597D;&#x4E4B;&#x524D;,&#x7387;&#x5148;&#x4FEE;&#x6539;&#x8BE5;&#x7C7B;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x63CF;&#x8FF0;&#x7B26;&#x4E0E;&#x5143;&#x7C7B;&#x80FD;&#x591F;&#x6709;&#x6548;&#x7684;&#x7EC4;&#x5408;&#x8D77;&#x6765;,&#x4EE5;&#x4FBF;&#x5BF9;&#x67D0;&#x79CD;&#x884C;&#x4E3A;&#x505A;&#x51FA;&#x4FEE;&#x9970;,&#x6216;&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x63A2;&#x67E5;&#x76F8;&#x5173;&#x4FE1;&#x606F;</li>
+<li>&#x5982;&#x679C;&#x628A;&#x5143;&#x7C7B;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;&#x76F8;&#x7ED3;&#x5408;,&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x4F7F;&#x7528;weakref&#x6A21;&#x5757;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#x907F;&#x514D;&#x5185;&#x5B58;&#x6CC4;&#x9732;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch03.html" class="navigation navigation-prev " aria-label="Previous page: 第三章 类与继承">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch05.html" class="navigation navigation-next " aria-label="Next page: 第五章 并发及并行">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第四章 元类及属性","level":"1.5","depth":1,"next":{"title":"第五章 并发及并行","level":"1.6","depth":1,"path":"ch05.md","ref":"ch05.md","articles":[]},"previous":{"title":"第三章 类与继承","level":"1.4","depth":1,"path":"ch03.md","ref":"ch03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch04.md","mtime":"2018-10-11T03:55:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T08:18:38.081Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
